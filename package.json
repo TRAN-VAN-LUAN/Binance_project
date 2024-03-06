@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
+    "classnames": "^2.5.1",
     "json-server": "^1.0.0-alpha.23",
+    "normalize.css": "^8.0.1",
     "primeflex": "^3.3.1",
     "primereact": "^10.5.1",
     "react": "^18.2.0",
@@ -26,6 +28,7 @@
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
     "@vitejs/plugin-react": "^4.2.1",
+    "babel-plugin-module-resolver": "^5.0.0",
     "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",

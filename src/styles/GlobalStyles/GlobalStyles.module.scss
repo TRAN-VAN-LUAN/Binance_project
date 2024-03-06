@@ -1,0 +1,59 @@
+@import 'normalize.css';
+
+:root {
+    --text-color: white;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'BinanceFont', sans-serif;
+    font-size: 1.6rem;
+    color: rgb(22, 24, 35);
+    line-height: 2.4rem;
+    text-rendering: optimizeSpeed;
+}
+
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+}
+
+a[href] {
+    color: var(--text-color);
+}
+
+// font family
+@font-face {
+    font-family: 'BinanceFont';
+    src: url(/assets/fonts/BinancePlex-SemiBold.woff2);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'BinanceFont';
+    src: url(/assets/fonts/BinancePlex-Medium.woff2);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'BinanceFont';
+    src: url(/assets/fonts/BinancePlex-Regular.woff2);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'BinanceFont';
+    src: url(/assets/fonts/BinancePlex-Light.woff2);
+    font-weight: 300;
+}
