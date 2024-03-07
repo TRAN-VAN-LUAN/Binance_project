@@ -8,17 +8,21 @@ const cx = classNames.bind(styles);
 const Login = () => {
     return (
         <div className={cx('container')}>
-            <h3 className={cx('header')}>Log In</h3>
-            <LoginForm />
-            <div className={cx('block-button')}>
-                <Button
-                    className="btn btn-login"
-                    aria-label="Google"
-                    outlined
-                    icon="pi pi-google"
-                    label="Login with Google"
-                />
+            <div className={cx('wrapper')}>
+                <h2 className={cx('header')}>Log In</h2>
+                <LoginForm />
+                <div className={cx('block-button')}>
+                    <Button
+                        className="btn btn-login"
+                        aria-label="Google"
+                        outlined
+                        icon="pi pi-google"
+                        label="Login with Google"
+                        severity="help"
+                    />
+                </div>
             </div>
+            <div>hello</div>
         </div>
     );
 };

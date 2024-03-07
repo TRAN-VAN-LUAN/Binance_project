@@ -1,0 +1,52 @@
+@import '../../styles/styles/mixin.scss';
+
+$radii-s: 6px;
+$radii-l: 10px;
+$height-medium: 48px;
+$height-large: 64px;
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 0 32px;
+    border-radius: $radii-l;
+    height: $height-medium;
+}
+
+.primary {
+    background-color: var(--primary);
+    color: var(--black);
+
+    &:hover {
+        @include MouseHoverPrimary(#fcd535);
+    }
+}
+
+.active {
+    background-color: var(--gray);
+    color: white;
+}
+
+.small {
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: $radii-s;
+}
+
+.large {
+    padding-left: 12px;
+    padding-right: 12px;
+    height: $height-large;
+}
+
+.secondary {
+    border-radius: 48px;
+}
+
+.outline {
+    background-color: var(--white);
+    border: 1px solid var(--black);
+}

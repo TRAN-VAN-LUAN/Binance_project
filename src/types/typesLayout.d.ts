@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
-export type childComponentProps = {
-    children: ReactNode;
-};
+export interface childComponentProps {
+    children: ReactNode
+}

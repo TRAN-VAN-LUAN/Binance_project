@@ -2,6 +2,10 @@
 
 :root {
     --text-color: white;
+    --primary: #fcd535;
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #474d57;
 }
 
 * {
@@ -36,19 +40,19 @@ a[href] {
 // font family
 @font-face {
     font-family: 'BinanceFont';
-    src: url(/assets/fonts/BinancePlex-SemiBold.woff2);
+    src: url(../assets/fonts/BinancePlex-SemiBold.woff2);
     font-weight: 600;
 }
 
 @font-face {
     font-family: 'BinanceFont';
-    src: url(/assets/fonts/BinancePlex-Medium.woff2);
+    src: url(../assets/fonts/BinancePlex-Medium.woff2);
     font-weight: 500;
 }
 
 @font-face {
     font-family: 'BinanceFont';
-    src: url(/assets/fonts/BinancePlex-Regular.woff2);
+    src: url(../assets/fonts/BinancePlex-Regular.woff2);
     font-weight: 400;
 }
 

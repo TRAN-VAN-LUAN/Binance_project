@@ -1,0 +1,6 @@
+@mixin MouseHoverPrimary($color) {
+    box-shadow: none;
+    background-image: none;
+    background-color: $color;
+    opacity: 0.9;
+}

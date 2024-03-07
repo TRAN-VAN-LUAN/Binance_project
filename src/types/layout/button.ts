@@ -1,24 +1,26 @@
-import { childComponentProps } from '../typesLayout';
+// import { childComponentProps } from '../typesLayout';
 
 export interface IButton {
     id?: string;
     className?: string;
-    placeholder?: string;
-    type?: string;
+    type?: ButtonType
+    href ?: string
     primary?: boolean;
-    success?: boolean;
-    help?: boolean;
-    outline?: boolean;
+    active?: boolean;
     secondary?: boolean;
-    info?: boolean;
-    danger?: boolean;
-    warning?: boolean;
-    label?: string;
-    onClick?: any;
-    onBlur?: any;
-    onSubmit?: any;
+    outline ?: string
+    text ?: boolean;
+    small ?: boolean
+    medium ?: boolean
+    large ?: boolean
+    onClick?: () => void;
+    onBlur?: () => void;
+    onSubmit?: () => void;
     required?: boolean;
     disabled?: boolean;
-    children?: childComponentProps;
-    background?: string;
+    children?: string;
+    leftIcon?: any
+    rightIcon?: any
 }
+
+type ButtonType = "submit" | "reset" | "button" | undefined;

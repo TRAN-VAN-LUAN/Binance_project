@@ -1,86 +1,84 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Button } from 'primereact/button'
-import { classNames } from 'primereact/utils';
-import { InputText } from 'primereact/inputtext';
+import { Button } from '../../component/Button/Button';
 import { Password } from 'primereact/password';
 
-import { IFormLogin } from "../../models/IFormLogin"
-import { Controller, useForm } from 'react-hook-form'
-import loginSchema from "../../schema/LoginSchema"
+import { IFormLogin } from '../../models/IFormLogin';
+import { Controller, useForm } from 'react-hook-form';
+import loginSchema from '../../schema/LoginSchema';
 import { ShowFormErrorMessage } from '../../component/ShowFormErrorMessage';
+import style from './Login.module.scss';
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(style);
 
 const LoginForm = () => {
     const defaultValues: IFormLogin = {
         username: '',
-        password: ''
-    }
+        password: '',
+    };
 
     const {
         control,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
     } = useForm({
         resolver: yupResolver(loginSchema),
-        defaultValues
-    })
+        defaultValues,
+    });
 
-    const onSubmit = () => {
-
-    }
+    const onSubmit = () => {};
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <Controller
-                name='username'
+                name="username"
                 control={control}
                 render={({ field, fieldState }) => {
                     return (
                         <>
-                            <label htmlFor={field.name} className='block text-900  font-medium mb-2'>
+                            <label htmlFor={field.name} className="block text-900  font-medium mb-2">
                                 User Name
                             </label>
-                            <InputText
+                            <input
                                 {...field}
                                 id={field.name}
-                                placeholder='Username'
-                                className={classNames('w-full p-3 md:w-25rem', {
-                                    'p-invalid': fieldState.error
-                                })}
+                                placeholder="Username"
+                                className={cx('w-full p-3 md:w-25rem')}
                                 style={{ padding: '1rem' }}
                             />
                             <ShowFormErrorMessage message={errors[field.name]?.message} />
                         </>
-                    )
+                    );
                 }}
             />
             <Controller
-                name='password'
+                name="password"
                 control={control}
                 render={({ field, fieldState }) => {
                     return (
                         <>
-                            <label htmlFor={field.name} className='block text-900  font-medium mb-2'>
+                            <label htmlFor={field.name} className="lable">
                                 Password
                             </label>
                             <Password
                                 {...field}
                                 inputId={field.name}
-                                placeholder='Password'
+                                placeholder="Password"
                                 toggleMask
-                                className={classNames('w-full', {
-                                    'p-invalid': fieldState.error
-                                })}
-                                inputClassName='w-full p-3 md:w-25rem'
+                                className={cx('password')}
+                                inputClassName="password-text"
                                 feedback={false}
                             />
                             <ShowFormErrorMessage message={errors[field.name]?.message} />
                         </>
-                    )
+                    );
                 }}
             />
-            <Button className="w-full mt-2 mb-4" label="Login" type='submit' severity="success"></Button>
+            <Button primary type="submit">
+                Login
+            </Button>
         </form>
-    )
-}
+    );
+};
 
-export default LoginForm
+export default LoginForm;
