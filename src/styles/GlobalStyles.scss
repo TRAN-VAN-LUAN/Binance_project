@@ -1,11 +1,13 @@
 @import 'normalize.css';
 
 :root {
-    --text-color: white;
     --primary: #fcd535;
     --black: #000000;
     --white: #ffffff;
     --gray: #474d57;
+
+    --bg-primary: #181a20;
+    --text-color: #eaecef;
 }
 
 * {
@@ -21,7 +23,8 @@ html {
 body {
     font-family: 'BinanceFont', sans-serif;
     font-size: 1.6rem;
-    color: rgb(22, 24, 35);
+    color: var(--text-color);
+    background-color: var(--bg-primary);
     line-height: 2.4rem;
     text-rendering: optimizeSpeed;
 }

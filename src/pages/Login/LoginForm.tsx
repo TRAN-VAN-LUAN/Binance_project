@@ -1,17 +1,16 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '../../component/Button/Button';
-import { Password } from 'primereact/password';
-
+import Input from '../../component/Input/Input';
 import { IFormLogin } from '../../models/IFormLogin';
 import { Controller, useForm } from 'react-hook-form';
 import loginSchema from '../../schema/LoginSchema';
-import { ShowFormErrorMessage } from '../../component/ShowFormErrorMessage';
-import style from './Login.module.scss';
-import classNames from 'classnames/bind';
-
-const cx = classNames.bind(style);
+import { ShowFormErrorMessage } from '../../component/Input/ShowFormErrorMessage';
+import { cx } from './Login';
+import { useTranslation } from 'react-i18next';
 
 const LoginForm = () => {
+    const { t } = useTranslation(['Login']);
+
     const defaultValues: IFormLogin = {
         username: '',
         password: '',
@@ -29,22 +28,22 @@ const LoginForm = () => {
     const onSubmit = () => {};
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className={cx('form-login')}>
             <Controller
                 name="username"
                 control={control}
                 render={({ field, fieldState }) => {
                     return (
                         <>
-                            <label htmlFor={field.name} className="block text-900  font-medium mb-2">
-                                User Name
+                            <label htmlFor={field.name} className={cx('login-lable')}>
+                                {t('username')}
                             </label>
-                            <input
+                            <Input
                                 {...field}
                                 id={field.name}
                                 placeholder="Username"
-                                className={cx('w-full p-3 md:w-25rem')}
-                                style={{ padding: '1rem' }}
+                                type="text"
+                                className={cx('username')}
                             />
                             <ShowFormErrorMessage message={errors[field.name]?.message} />
                         </>
@@ -57,17 +56,15 @@ const LoginForm = () => {
                 render={({ field, fieldState }) => {
                     return (
                         <>
-                            <label htmlFor={field.name} className="lable">
+                            <label htmlFor={field.name} className={cx('login-lable')}>
                                 Password
                             </label>
-                            <Password
+                            <Input
                                 {...field}
-                                inputId={field.name}
+                                id={field.name}
                                 placeholder="Password"
-                                toggleMask
                                 className={cx('password')}
-                                inputClassName="password-text"
-                                feedback={false}
+                                type="password"
                             />
                             <ShowFormErrorMessage message={errors[field.name]?.message} />
                         </>
@@ -75,7 +72,7 @@ const LoginForm = () => {
                 }}
             />
             <Button primary type="submit">
-                Login
+                {t('login')}
             </Button>
         </form>
     );
