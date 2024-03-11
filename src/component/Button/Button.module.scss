@@ -4,16 +4,21 @@ $radii-s: 6px;
 $radii-l: 10px;
 $height-medium: 48px;
 $height-large: 64px;
+$height-small: 32px;
 
 .wrapper {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     font-size: 1.6rem;
     font-weight: 600;
-    padding: 0 32px;
+    padding: 0 14px;
     border-radius: $radii-l;
     height: $height-medium;
+
+    .title {
+        flex: 1;
+    }
 }
 
 .primary {
@@ -32,8 +37,18 @@ $height-large: 64px;
 
 .small {
     font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 2.2rem;
     padding: 4px 8px;
     border-radius: $radii-s;
+    height: $height-small;
+    min-width: 88px;
+
+    .icon-left {
+        width: 16px;
+        height: 16px;
+        margin-right: 2px;
+    }
 }
 
 .large {

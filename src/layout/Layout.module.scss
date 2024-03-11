@@ -1,0 +1,75 @@
+@import '../styles/styles/mixin.scss';
+$height-topbar: 64px;
+
+.main-container {
+    width: 100%;
+    height: 100%;
+
+    .main {
+        width: 100%;
+        display: flex;
+        margin-top: $height-topbar;
+    }
+}
+
+.main .topbar-main-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $height-topbar;
+    background-color: var(--bg-primary);
+    padding: 0 24px;
+
+    .topbar-nav {
+        display: flex;
+        align-items: center;
+        height: $height-topbar;
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .topbar-logo {
+            display: flex;
+            align-items: center;
+            height: $height-topbar;
+            color: var(--color-primaryHover);
+        }
+
+        .header-menu-nav {
+            margin-left: 24px;
+            @include HeaderNavItem();
+            &:hover {
+                @include hoverPrimary();
+            }
+        }
+    }
+
+    .topbar-action {
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        .topbar-deposit {
+            height: 100%;
+            padding: 0 8px;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+.main .container {
+    flex: 1 1 auto;
+}
+
+// Large devices (desktops, 992px and up)
+@media (max-width: 992px) {
+    .nav-container {
+        display: none !important;
+    }
+}

@@ -21,7 +21,7 @@ const Login = () => {
                     </Button>
                 </div>
             </div>
-            <div>hello</div>
+            <div className={cx('QR')}>QR</div>
         </div>
     );
 };

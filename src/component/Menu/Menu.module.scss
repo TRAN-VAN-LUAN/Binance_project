@@ -1,0 +1,41 @@
+@import '../../styles/styles/mixin.scss';
+.header-menu-item {
+    display: flex;
+    align-items: center;
+    height: var(--height-header);
+    margin-left: 24px;
+    color: var(--text-color);
+
+    &:hover {
+        @include hoverPrimary();
+    }
+
+    .header-menu-nav {
+        @include HeaderNavItem();
+
+        &:hover {
+            @include hoverPrimary();
+        }
+    }
+
+    .icon-chevron {
+        display: block;
+        height: var(--height-header);
+        display: flex;
+        align-items: center;
+        transform: rotate(180deg);
+    }
+}
+
+.header-icon {
+    --width-icon: 24;
+    width: var(--width-icon);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+
+    &:hover {
+        @include hoverPrimary();
+    }
+}

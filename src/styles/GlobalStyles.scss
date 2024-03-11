@@ -1,13 +1,21 @@
 @import 'normalize.css';
 
 :root {
+    // Color
     --primary: #fcd535;
     --black: #000000;
     --white: #ffffff;
     --gray: #474d57;
+    --color-primaryHover: #f0b90b;
 
+    // Background color
     --bg-primary: #181a20;
+
+    // Text color
     --text-color: #eaecef;
+
+    // Header variable
+    --height-header: 64px;
 }
 
 * {
@@ -37,6 +45,7 @@ input,
 }
 
 a[href] {
+    text-decoration: none;
     color: var(--text-color);
 }
 

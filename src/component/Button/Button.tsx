@@ -6,7 +6,8 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 export const Button: FC<IButton> = (props) => {
-    const { id, className, children, leftIcon, rightIcon, active, primary, secondary, outline, ...propItems } = props;
+    const { id, className, children, leftIcon, small, rightIcon, active, primary, secondary, outline, ...propItems } =
+        props;
 
     const classNames = cx('wrapper', {
         [id as string]: id,
@@ -15,6 +16,7 @@ export const Button: FC<IButton> = (props) => {
         active,
         secondary,
         outline,
+        small,
     });
 
     const CustomButton = () => {

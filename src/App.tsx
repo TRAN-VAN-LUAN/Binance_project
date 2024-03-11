@@ -1,13 +1,8 @@
-import Login from "./pages/Login/Login";
+import { Outlet } from 'react-router-dom';
+// import Login from './pages/Login/Login';
 
 function App() {
-    return (
-        <>
-            <div>
-                <Login />
-            </div>
-        </>
-    );
+    return <Outlet />;
 }
 
 export default App;

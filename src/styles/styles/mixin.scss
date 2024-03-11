@@ -4,3 +4,17 @@
     background-color: $color;
     opacity: 0.9;
 }
+
+@mixin hoverPrimary() {
+    color: var(--color-primaryHover);
+}
+
+@mixin HeaderNavItem() {
+    display: block;
+    height: 100%;
+    font-size: 1.4rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
