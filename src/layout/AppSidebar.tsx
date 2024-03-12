@@ -10,7 +10,12 @@ const AppSidebar = () => {
     const handleShowItem = (title: string) => {
         DashBoard.map((dashBoardItem) => {
             if (!!dashBoardItem.children && dashBoardItem.title === title) {
-                setTitle((prev) => [...prev, title]);
+                if(titles.includes(title)){
+                    setTitle(prev => prev.filter(item => item !== title));
+                }else {
+                    setTitle((prev) => [...prev, title]);
+                }
+
             }
         });
     };
@@ -32,7 +37,7 @@ const AppSidebar = () => {
                                 <span className={cx('icon-chervo')}>{<IconChervo width="2.0rem" height="2rem" />}</span>
                             )}
                         </button>
-                        {titles[dashBoardItem.title] &&
+                        {titles.includes(dashBoardItem.title)&&
                             dashBoardItem.children?.map((item, index) => (
                                 <button key={index} className={cx('sidebar-btn', 'sidebar-childre-item')}>
                                     <div>
