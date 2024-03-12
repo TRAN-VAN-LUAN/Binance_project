@@ -172,3 +172,173 @@ export const IconDeposit = ({
         ></path>
     </svg>
 );
+
+export const Spot2C = ({
+    className,
+    width = '2.6rem',
+    height = '2.6rem',
+}: {
+    className?: string;
+    width?: string;
+    height?: string;
+}) => (
+    <svg className={className} width={width} height={height} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M12.0713 4.33333C10.1496 4.33333 8.53087 5.63044 8.04287 7.3969C10.7668 7.64831 12.9352 9.81677 13.1866 12.5407C14.9531 12.0527 16.2502 10.4339 16.2502 8.51225C16.2502 6.2043 14.3793 4.33333 12.0713 4.33333ZM11.6912 13.0711C11.6912 10.7631 9.82025 8.89215 7.5123 8.89215C5.20434 8.89215 3.33337 10.7631 3.33337 13.0711C3.33337 15.379 5.20434 17.25 7.5123 17.25C9.82025 17.25 11.6912 15.379 11.6912 13.0711ZM5.61279 13.0711L7.5123 14.9706L9.41181 13.0711L7.5123 11.1716L5.61279 13.0711Z"
+            fill="currentColor"
+        ></path>
+        <path d="M8.33333 3.5H2.5V9.33333L8.33333 3.5Z" fill="#F0B90B"></path>
+        <path d="M11.6667 18.5H17.5V12.6667L11.6667 18.5Z" fill="#F0B90B"></path>
+    </svg>
+);
+
+export const Margin2C = ({
+    className,
+    width = '2.6rem',
+    height = '2.6rem',
+}: {
+    className?: string;
+    width?: string;
+    height?: string;
+}) => (
+    <svg className={className} width={width} height={height} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M18.7678 7.0185L5.82854 19.9577L4.06077 18.19L17 5.25073L17.8839 6.13462L18.7678 7.0185Z"
+            fill="currentColor"
+        ></path>
+        <path d="M12 4H20V12L12 4Z" fill="currentColor"></path>
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M7.5 11C9.433 11 11 9.433 11 7.5C11 5.567 9.433 4 7.5 4C5.567 4 4 5.567 4 7.5C4 9.433 5.567 11 7.5 11ZM7.5 5.96875L5.96875 7.5L7.5 9.03125L9.03125 7.50017L7.5 5.96875Z"
+            fill="currentColor"
+        ></path>
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M16.5 20C18.433 20 20 18.433 20 16.5C20 14.567 18.433 13 16.5 13C14.567 13 13 14.567 13 16.5C13 18.433 14.567 20 16.5 20ZM16.5 14.9688L14.9688 16.5L16.5 18.0312L18.0312 16.5002L16.5 14.9688Z"
+            fill="#F0B90B"
+        ></path>
+    </svg>
+);
+
+export const TradingBot2C = ({
+    className,
+    width = '2.6rem',
+    height = '2.6rem',
+}: {
+    className?: string;
+    width?: string;
+    height?: string;
+}) => (
+    <svg className={className} width={width} height={height} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M4 7.5H20V11.4998H22V15.4998H20V20H4V15.4998H2V11.4998H4V7.5ZM15.5 13.1318C16.3284 13.1318 17 12.4603 17 11.6318C17 10.8034 16.3284 10.1318 15.5 10.1318C14.6716 10.1318 14 10.8034 14 11.6318C14 12.4603 14.6716 13.1318 15.5 13.1318ZM10 11.6318C10 12.4603 9.32843 13.1318 8.5 13.1318C7.67157 13.1318 7 12.4603 7 11.6318C7 10.8034 7.67157 10.1318 8.5 10.1318C9.32843 10.1318 10 10.8034 10 11.6318ZM15 15C15 16.6569 13.6569 18 12 18C10.3431 18 9 16.6569 9 15H15Z"
+            fill="currentColor"
+        ></path>
+        <path d="M10.5 5H13.5V7.5H10.5V5Z" fill="#F0B90B"></path>
+        <path d="M9 4H15V6H9V4Z" fill="#F0B90B"></path>
+    </svg>
+);
+
+export const CopyTrading2C = ({
+    className,
+    width = '2.6rem',
+    height = '2.6rem',
+}: {
+    className?: string;
+    width?: string;
+    height?: string;
+}) => (
+    <svg className={className} width={width} height={height} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M7.50049 11.9961C9.98577 11.9961 12.0005 14.0108 12.0005 16.4961C12.0005 18.9814 9.98577 20.9961 7.50049 20.9961C5.01521 20.9961 3.00049 18.9814 3.00049 16.4961C3.00049 14.0108 5.01521 11.9961 7.50049 11.9961ZM7.50049 18.4247L5.57192 16.4961L7.50049 14.5675L9.42906 16.4961L7.50049 18.4247Z"
+            fill="#F0B90B"
+        ></path>
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M19.5005 5C19.5005 6.38071 18.3812 7.5 17.0005 7.5C15.6198 7.5 14.5005 6.38071 14.5005 5C14.5005 3.61929 15.6198 2.5 17.0005 2.5C18.3812 2.5 19.5005 3.61929 19.5005 5ZM3.00049 3H12.5005V6H6.00049V9.99609H3.00049V3ZM21.0005 15V21H14.0005V18H18.0005V15H21.0005ZM15.3338 9C14.0452 9 13.0005 10.0447 13.0005 11.3333V13H21.0005V11.3333C21.0005 10.0447 19.9558 9 18.6672 9H15.3338Z"
+            fill="currentColor"
+        ></path>
+    </svg>
+);
+
+export const iconHome = ({
+    className,
+    width = '2.6rem',
+    height = '2.6rem',
+}: {
+    className?: string;
+    width?: string;
+    height?: string;
+}) => (
+    <svg className={className} width={width} height={height} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path fillRule="evenodd" clipRule="evenodd" d="M4 12v8h5.5v-6h5v6H20v-8l-8-8-8 8z" fill="currentColor"></path>
+    </svg>
+);
+
+export const iconSetting = ({
+    className,
+    width = '2.6rem',
+    height = '2.6rem',
+}: {
+    className?: string;
+    width?: string;
+    height?: string;
+}) => (
+    <svg className={className} width={width} height={height} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M13.8 3h-3.6v2.027c-.66.17-1.285.431-1.858.77L6.91 4.363 4.363 6.91l1.434 1.433a7.157 7.157 0 00-.77 1.858H3v3.6h2.027c.17.66.431 1.285.77 1.858L4.363 17.09l2.546 2.546 1.433-1.434c.573.339 1.197.6 1.858.77V21h3.6v-2.027a7.157 7.157 0 001.858-.77l1.433 1.434 2.546-2.546-1.434-1.434a7.16 7.16 0 00.77-1.857H21v-3.6h-2.027a7.158 7.158 0 00-.77-1.858l1.434-1.433-2.546-2.546-1.434 1.434a7.156 7.156 0 00-1.857-.77V3zm-4.5 9a2.7 2.7 0 115.4 0 2.7 2.7 0 01-5.4 0z"
+            fill="currentColor"
+        ></path>
+    </svg>
+);
+
+export const ArrowRight = ({
+    className,
+    width = '2.6rem',
+    height = '2.6rem',
+}: {
+    className?: string;
+    width?: string;
+    height?: string;
+}) => (
+    <svg className={className} width={width} height={height} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M21 11.999l-7.071-7.071-1.768 1.768 4.055 4.054H2.999v2.5h13.216l-4.054 4.053 1.768 1.768L21 12v-.001z"
+            fill="currentColor"
+        ></path>
+    </svg>
+);
+
+export const iconAccount = ({
+    className,
+    width = '2.6rem',
+    height = '2.6rem',
+}: {
+    className?: string;
+    width?: string;
+    height?: string;
+}) => (
+    <svg className={className} width={width} height={height} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M16 8a4 4 0 11-8 0 4 4 0 018 0zm-8 6a4 4 0 00-4 4v2h16v-2a4 4 0 00-4-4H8z"
+            fill="currentColor"
+        ></path>
+    </svg>
+);

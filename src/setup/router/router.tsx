@@ -4,7 +4,6 @@ import Login from '../../pages/Login/Login';
 import { loginRouter, protectedRouter } from '../../utils/protectedRouter.ts';
 import Layout from '../../layout/Layout';
 import DashBoard from '../../pages/DashBoard/DashBoard';
-import Bitcoin from '../../pages/Bitcoin/Bitcoin';
 
 const router = createBrowserRouter([
     {

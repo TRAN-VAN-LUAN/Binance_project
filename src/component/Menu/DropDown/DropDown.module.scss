@@ -1,49 +1,4 @@
 @import '../../styles/styles/mixin.scss';
-.header-menu-item {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: var(--height-header);
-    margin-left: 24px;
-    color: var(--text-color);
-
-    &:hover .icon {
-        @include hoverPrimary();
-        transform: rotate(180deg);
-    }
-
-    &:hover .main-container {
-        display: flex;
-    }
-
-    .header-menu-nav {
-        @include HeaderNavItem();
-
-        &:hover {
-            @include hoverPrimary();
-        }
-    }
-
-    .icon-chevron {
-        display: block;
-        height: var(--height-header);
-        display: flex;
-        align-items: center;
-    }
-}
-
-.header-icon {
-    --width-icon: 24;
-    width: var(--width-icon);
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 8px;
-
-    &:hover {
-        @include hoverPrimary();
-    }
-}
 
 @keyframes moveRight {
     from {
@@ -59,17 +14,11 @@
     position: absolute;
     top: var(--height-header);
     left: -300%;
-    display: none;
+    display: flex;
     align-items: center;
     padding: 24px;
     background-color: var(--bg-dropdown);
     border-radius: 4px;
-
-    .header {
-        color: var(--color-textDisabled);
-        font-size: 1.4rem;
-        font-weight: 500;
-    }
 
     .main-container-primary {
         width: var(--width-children);
@@ -109,7 +58,7 @@
         }
     }
 
-    &:hover .icon-dropdown {
+    &:hover .icon {
         @include hoverPrimary();
         animation: moveRight 1s linear;
     }

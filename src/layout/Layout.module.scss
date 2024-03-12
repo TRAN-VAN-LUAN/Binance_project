@@ -73,3 +73,67 @@ $height-topbar: 64px;
         display: none !important;
     }
 }
+
+// Sidebar
+.sidebar-main-container {
+    --width-sidebar: 248px;
+    padding-top: 24px;
+    width: var(--width-sidebar);
+
+    .sidebar-list {
+        width: 100%;
+
+        .sidebar-btn {
+            --height-btn: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding-left: 20px;
+            padding-right: 20px;
+            background-color: transparent;
+            color: var(--text-color);
+            height: var(--height-btn);
+            border-radius: 0px 12px 12px 0px;
+            color: var(--color-textThird);
+
+            + .sidebar-btn {
+                margin-top: 6px;
+            }
+
+            div {
+                display: flex;
+                align-items: center;
+            }
+
+            .sidebar-icon {
+                margin-right: 10px;
+            }
+
+            .title {
+                line-height: 24px;
+                font-size: 1.6rem;
+                font-weight: 500;
+            }
+
+            &:hover,
+            &:focus {
+                color: var(--text-color);
+                background-color: var(--bg-focus);
+            }
+
+            &:focus .icon-chervo {
+                transform: rotate(180deg);
+            }
+
+            .icon-chervo {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .sidebar-childre-item {
+            padding-left: 44px;
+        }
+    }
+}
