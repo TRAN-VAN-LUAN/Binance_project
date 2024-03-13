@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { IconChervo } from '../assets/Icon/icon';
 import { cx } from './Layout';
-import { DashBoard } from './store/storeLayout';
+import { DashBoard } from '../store/storeLayout';
 import { useTranslation } from 'react-i18next';
 const AppSidebar = () => {
     const { t } = useTranslation(['DashBoard']);
@@ -10,12 +10,11 @@ const AppSidebar = () => {
     const handleShowItem = (title: string) => {
         DashBoard.map((dashBoardItem) => {
             if (!!dashBoardItem.children && dashBoardItem.title === title) {
-                if(titles.includes(title)){
-                    setTitle(prev => prev.filter(item => item !== title));
-                }else {
+                if (titles.includes(title)) {
+                    setTitle((prev) => prev.filter((item) => item !== title));
+                } else {
                     setTitle((prev) => [...prev, title]);
                 }
-
             }
         });
     };
@@ -37,7 +36,7 @@ const AppSidebar = () => {
                                 <span className={cx('icon-chervo')}>{<IconChervo width="2.0rem" height="2rem" />}</span>
                             )}
                         </button>
-                        {titles.includes(dashBoardItem.title)&&
+                        {titles.includes(dashBoardItem.title) &&
                             dashBoardItem.children?.map((item, index) => (
                                 <button key={index} className={cx('sidebar-btn', 'sidebar-childre-item')}>
                                     <div>

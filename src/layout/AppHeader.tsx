@@ -3,7 +3,7 @@ import { Logo } from '../assets/Icon/icon';
 import { cx } from './Layout';
 import NavigateItem from '../component/Menu/NavigateItem';
 import { useTranslation } from 'react-i18next';
-import { IconAction, NAV } from './store/storeLayout';
+import { IconAction, NAV } from '../store/storeLayout';
 import NavigateIcon from '../component/Menu/NavigateIcon';
 import { Button } from '../component/Button/Button';
 import DropDown from '../component/Menu/DropDown/DropDown';

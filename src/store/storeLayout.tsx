@@ -12,8 +12,8 @@ import {
     iconAccount,
     iconHome,
     iconSetting,
-} from '../../assets/Icon/icon';
-import { IDropDown } from '../../models/ILayout';
+} from '../assets/Icon/icon';
+import { IDropDown } from '../models/ILayout';
 
 export const IconAction = [
     {

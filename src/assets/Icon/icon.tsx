@@ -1,3 +1,22 @@
+export const IconPen = ({
+    className,
+    width = '2.4rem',
+    height = '2.4rem',
+}: {
+    className?: string;
+    width?: string;
+    height?: string;
+}) => (
+    <svg className={className} width={width} height={height} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M15.336 4.776l3.89 3.889-1.768 1.767-3.89-3.889 1.768-1.767zm-3.181 3.181l3.889 3.89-5.129 5.128H20v3H7.915l-.004.003H4.022V16.09l8.133-8.132z"
+            fill="currentColor"
+        ></path>
+    </svg>
+);
+
 export const Logo = ({
     className,
     width = '2.6rem',
@@ -338,6 +357,84 @@ export const iconAccount = ({
             fillRule="evenodd"
             clipRule="evenodd"
             d="M16 8a4 4 0 11-8 0 4 4 0 018 0zm-8 6a4 4 0 00-4 4v2h16v-2a4 4 0 00-4-4H8z"
+            fill="currentColor"
+        ></path>
+    </svg>
+);
+
+export const IconToolTips = ({
+    className,
+    width = '1.6rem',
+    height = '1.6rem',
+}: {
+    className?: string;
+    width?: string;
+    height?: string;
+}) => (
+    <svg className={className} width={width} height={height} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+            d="M11.293 15.182l4.243-4.243-1.415-1.414-2.828 2.829-1.414-1.415-1.415 1.414 2.829 2.829z"
+            fill="currentColor"
+        ></path>
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M9.5 3h5L21 9.5v5L14.5 21h-5L3 14.5v-5L9.5 3zm7.5 9a5 5 0 11-10 0 5 5 0 0110 0z"
+            fill="currentColor"
+        ></path>
+    </svg>
+);
+
+export const IconToolTipsWarp = ({
+    className,
+    width = '1.6rem',
+    height = '1.6rem',
+}: {
+    className?: string;
+    width?: string;
+    height?: string;
+}) => (
+    <svg className={className} width={width} height={height} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+            d="M3.044 3.576l6.95 9.293L3 20.424h1.574l6.123-6.615 4.947 6.615H21l-7.34-9.815 6.509-7.033h-1.574l-5.639 6.092L8.4 3.576H3.044zm2.314 1.16H7.82l10.866 14.528h-2.46L5.358 4.736z"
+            fill="currentColor"
+        ></path>
+    </svg>
+);
+
+export const IconCoppy = ({
+    className,
+    width = '1.6rem',
+    height = '1.6rem',
+}: {
+    className?: string;
+    width?: string;
+    height?: string;
+}) => (
+    <svg className={className} width={width} height={height} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z"
+            fill="currentColor"
+        ></path>
+    </svg>
+);
+
+export const IconArrowRight = ({
+    className,
+    width = '1.6rem',
+    height = '1.6rem',
+}: {
+    className?: string;
+    width?: string;
+    height?: string;
+}) => (
+    <svg className={className} width={width} height={height} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M12.288 12l-3.89 3.89 1.768 1.767L15.823 12l-1.768-1.768-3.889-3.889-1.768 1.768 3.89 3.89z"
             fill="currentColor"
         ></path>
     </svg>
