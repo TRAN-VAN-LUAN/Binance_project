@@ -2,5 +2,11 @@
     "dashdoard": "Bảng điều khiển",
     "assets": "Tài sản",
     "account": "Tài khoản",
-    "setting": "tùy chỉnh"
+    "setting": "tùy chỉnh",
+    "userId": "ID Người dùng",
+    "viplevel": "Mức độ VIP",
+    "usertype": "Loại Tài Khoản",
+    "following": "Đang theo dõi",
+    "follower": "Người theo dõi",
+    "getstarted": "Bắt đầu"
 }

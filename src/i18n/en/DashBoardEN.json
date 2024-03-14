@@ -2,5 +2,11 @@
     "dashdoard": "DashBoard",
     "assets": "Assets",
     "account": "Account",
-    "setting": "Setting"
+    "setting": "Setting",
+    "userId": "User ID",
+    "viplevel": "VIP Level",
+    "usertype": "User Type",
+    "following": "Following",
+    "follower": "Follower",
+    "getstarted": "Get Started"
 }

@@ -65,6 +65,7 @@ $height-topbar: 64px;
 
 .main .container {
     flex: 1 1 auto;
+    z-index: 1;
 }
 
 // Large devices (desktops, 992px and up)

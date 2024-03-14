@@ -1,7 +1,7 @@
 export const IconPen = ({
     className,
-    width = '2.4rem',
-    height = '2.4rem',
+    width = '1.6rem',
+    height = '1.6rem',
 }: {
     className?: string;
     width?: string;

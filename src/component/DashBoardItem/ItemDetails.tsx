@@ -17,7 +17,7 @@ const ItemDetails: FC<IItemDetails> = (props) => {
             <span className={cx('title')}>{title}</span>
             <div className={cx('item-info')}>
                 <span className={cx('item-list')}>{item}</span>
-                <span>{icon}</span>
+                <span className={cx('item-icon')}>{icon}</span>
             </div>
         </div>
     );

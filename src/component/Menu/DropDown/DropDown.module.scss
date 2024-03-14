@@ -1,14 +1,5 @@
 @import '../../styles/styles/mixin.scss';
 
-@keyframes moveRight {
-    from {
-        left: 0;
-    }
-    to {
-        left: 20px;
-    }
-}
-
 .main-container {
     --width-children: 280px;
     position: absolute;
@@ -19,6 +10,7 @@
     padding: 24px;
     background-color: var(--bg-dropdown);
     border-radius: 4px;
+    z-index: 1300;
 
     .main-container-primary {
         width: var(--width-children);
