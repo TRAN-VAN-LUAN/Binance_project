@@ -8,5 +8,14 @@
     "usertype": "Loại Tài Khoản",
     "following": "Đang theo dõi",
     "follower": "Người theo dõi",
-    "getstarted": "Bắt đầu"
+    "getstarted": "Bắt đầu",
+    "pending": "Đang duyệt",
+    "verify": "Xác minh",
+    "indentifycation": "Nhận dạng",
+    "cashin": "Tiền Mặt",
+    "withdraw": "Rút",
+    "deposit": "Tiền gửi",
+    "overview": "Tổng quan",
+    "spot": "Điểm",
+    "margin": "Lề"
 }

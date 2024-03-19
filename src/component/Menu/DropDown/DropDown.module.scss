@@ -1,4 +1,4 @@
-@import '../../styles/styles/mixin.scss';
+@import '../../../styles/styles/mixin.scss';
 
 .main-container {
     --width-children: 280px;
@@ -53,5 +53,67 @@
     &:hover .icon {
         @include hoverPrimary();
         animation: moveRight 1s linear;
+    }
+}
+
+// Dropdown user
+.dropdown-user {
+    position: absolute;
+    top: 46px;
+    left: -100px;
+    content: '';
+    min-width: 240px;
+    background-color: var(--bg-dropdown);
+    padding-bottom: 10px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+
+    &::before {
+        position: absolute;
+        content: '';
+        top: -24px;
+        left: 100px;
+        width: 44px;
+        height: 25px;
+        background-color: transparent;
+    }
+
+    .username {
+        text-align: center;
+        margin-top: 16px;
+        padding: 0 16px;
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+
+    .user-btn-info {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 16px 0;
+
+        button {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            font-size: 1.2rem;
+            font-weight: 400;
+            height: 24px;
+            width: auto;
+            margin: 4px 0;
+            margin-left: 6px;
+
+            background-color: var(--color-line);
+        }
+    }
+
+    .btn-dropdown-user {
+        border-radius: 0;
+        font-size: 1.4rem;
+        font-weight: 500;
+
+        svg {
+            width: 2.4rem;
+            height: 2.4rem;
+        }
     }
 }

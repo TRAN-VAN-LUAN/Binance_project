@@ -1,13 +1,26 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { IButton } from '../../types/layout/button';
 import styles from './Button.module.scss';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-export const Button: FC<IButton> = (props) => {
-    const { id, className, children, leftIcon, small, rightIcon, active, primary, secondary, outline, ...propItems } =
-        props;
+export const Button: FC<IButton> = memo((props) => {
+    const {
+        id,
+        className,
+        disabled,
+        children,
+        leftIcon,
+        small,
+        rightIcon,
+        active,
+        primary,
+        secondary,
+        outline,
+        twoIcon,
+        ...propItems
+    } = props;
 
     const classNames = cx('wrapper', {
         [id as string]: id,
@@ -15,9 +28,19 @@ export const Button: FC<IButton> = (props) => {
         primary,
         active,
         secondary,
+        twoIcon,
         outline,
         small,
+        disabled,
     });
+
+    // if (disabled) {
+    //     Object.keys(propItems).forEach((key) => {
+    //         if (key.startsWith('on') && typeof propItems[key] === 'function') {
+    //             delete propItems[key];
+    //         }
+    //     });
+    // }
 
     const CustomButton = () => {
         return (
@@ -46,4 +69,4 @@ export const Button: FC<IButton> = (props) => {
     }
 
     return <ComponentTags />;
-};
+});

@@ -4,16 +4,16 @@
     width: 100%;
 
     .container {
-        padding-left: var(--dynamic-dashboard-left);
         width: 100%;
         z-index: 0;
+        padding: 0 24px;
     }
 }
 
 .main-container .dashboard-header {
     --height-dashboard-header: 104px;
     display: grid;
-    grid-template-columns: 38% 62%;
+    grid-template-columns: 35% 65%;
     width: 100%;
     height: var(--height-dashboard-header);
     padding-top: 24px;
@@ -23,6 +23,7 @@
         position: relative;
         display: flex;
         height: 100%;
+        margin-right: 40px;
         .avata {
             position: relative;
             width: 6.4rem;
@@ -56,18 +57,6 @@
             }
         }
 
-        &::before {
-            position: absolute;
-            content: '';
-            right: 0;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            height: 64px;
-            background-color: var(--color-line);
-            margin-right: 40px;
-        }
-
         .info-item {
             display: flex;
             flex-direction: column;
@@ -76,7 +65,7 @@
             height: 100%;
 
             .username {
-                height: 24px;
+                min-height: 24px;
                 margin-bottom: 12px;
             }
 
@@ -111,6 +100,22 @@
 
     .info-details {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+        position: relative;
+        padding-left: 40px;
+
+        &::before {
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            height: 64px;
+            background-color: var(--color-line);
+            margin-right: 40px;
+        }
     }
 }
 
@@ -119,6 +124,7 @@
         font-size: 2rem;
         padding-bottom: 24px;
         font-weight: 500;
+        line-height: 2.8rem;
     }
 
     .voucher {
@@ -131,5 +137,30 @@
 @media (min-width: 1024px) {
     .container {
         max-width: calc(936px + var(--dynamic-dashboard-left));
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (max-width: 992px) {
+    .main-container {
+        .dashboard-header {
+            display: flex;
+        }
+
+        .dashboard-container {
+            height: 100%;
+        }
+    }
+
+    .main-container .voucher {
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 768px) {
+    .main-container .info-details {
+        display: none !important;
     }
 }

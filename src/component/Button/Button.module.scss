@@ -31,8 +31,18 @@ $height-small: 32px;
 }
 
 .active {
-    background-color: var(--gray);
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 0 12px;
+    height: 32px;
+    background-color: var(--color-line);
     color: white;
+    border-radius: 6px;
+
+    &:hover,
+    &:focus {
+        opacity: 0.8;
+    }
 }
 
 .small {
@@ -51,6 +61,17 @@ $height-small: 32px;
     }
 }
 
+.disabled {
+    cursor: not-allowed;
+    background-color: var(--bg-disabled);
+    color: var(--color-disabled);
+
+    &:hover {
+        background-color: var(--bg-disabled);
+        color: var(--color-disabled);
+    }
+}
+
 .large {
     padding-left: 12px;
     padding-right: 12px;
@@ -65,4 +86,33 @@ $height-small: 32px;
     background-color: transparent;
     border: 1px solid var(--black);
     color: var(--text-color);
+}
+
+.twoIcon {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    color: var(--color-textThird);
+    background-color: transparent;
+
+    .title {
+        flex: 1;
+        display: flex;
+    }
+
+    .icon-left {
+        margin-right: 10px;
+    }
+
+    &:hover,
+    &:focus {
+        color: var(--text-color);
+        background-color: var(--bg-focus);
+    }
+
+    &:focus .icon-right {
+        transform: rotate(180deg);
+        animation: all 0.5s linear;
+    }
 }

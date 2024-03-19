@@ -1,7 +1,11 @@
 import {
     CopyTrading2C,
+    IconBitcoint,
+    IconChart,
     IconDeposit,
+    IconDollar,
     IconDownload,
+    IconEarn,
     IconLanguage,
     IconSearch,
     IconUser,
@@ -9,16 +13,16 @@ import {
     Margin2C,
     Spot2C,
     TradingBot2C,
-    iconAccount,
-    iconHome,
-    iconSetting,
 } from '../assets/Icon/icon';
+import DropDownUser from '../component/Menu/DropDown/DropDownUser';
+import DropDownWallet from '../component/Menu/DropDown/DropDownWallet';
 import { IDropDown } from '../models/ILayout';
 
 export const IconAction = [
     {
         title: 'search',
         icon: IconSearch,
+        dropdown: '',
     },
     {
         title: 'deposit',
@@ -30,19 +34,50 @@ export const IconAction = [
     {
         title: 'user',
         icon: IconUser,
+        dropdown: <DropDownUser />,
     },
 
     {
         title: 'wallet',
         icon: IconWallet,
+        dropdown: <DropDownWallet />,
+    },
+    {
+        title: 'QR',
+        icon: IconDownload,
+        dropdown: '',
+    },
+    {
+        title: 'language',
+        icon: IconLanguage,
+        dropdown: '',
+    },
+];
+
+export const INavDraw = [
+    {
+        title: 'buycrypto',
+        icon: IconBitcoint,
+    },
+    {
+        title: 'markets',
+        icon: IconChart,
+    },
+    {
+        title: 'earn',
+        icon: IconEarn,
     },
     {
         title: 'download',
         icon: IconDownload,
     },
     {
-        title: 'language',
+        title: 'english',
         icon: IconLanguage,
+    },
+    {
+        title: 'usd',
+        icon: IconDollar,
     },
 ];
 
@@ -98,42 +133,4 @@ export const NAV = [
     //     title: 'more',
     //     children: { contentFirst: IDropDownTradeBasic, contentRight: IDropDownTradeAdvanced },
     // },
-];
-
-export const DashBoard = [
-    {
-        title: 'DashBoard',
-        icon: iconHome,
-    },
-    {
-        title: 'Assets',
-        icon: IconWallet,
-        children: [
-            {
-                title: 'overview',
-            },
-            {
-                title: 'spot',
-            },
-            {
-                title: 'margin',
-            },
-        ],
-    },
-    {
-        title: 'Account',
-        icon: iconAccount,
-        children: [
-            {
-                title: 'indentification',
-            },
-            {
-                title: 'Security',
-            },
-        ],
-    },
-    {
-        title: 'Setting',
-        icon: iconSetting,
-    },
 ];

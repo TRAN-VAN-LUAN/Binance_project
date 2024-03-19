@@ -22,6 +22,7 @@ $height-topbar: 64px;
     height: $height-topbar;
     background-color: var(--bg-primary);
     padding: 0 24px;
+    z-index: 999;
 
     .topbar-nav {
         display: flex;
@@ -54,11 +55,25 @@ $height-topbar: 64px;
         align-items: center;
         height: 100%;
 
+        .wallet,
+        .download,
+        .language {
+            display: flex;
+        }
+
+        .icon-bars {
+            display: none;
+        }
+
         .topbar-deposit {
             height: 100%;
             padding: 0 8px;
             display: flex;
             align-items: center;
+        }
+
+        .topbar-action-item {
+            position: relative;
         }
     }
 }
@@ -68,7 +83,6 @@ $height-topbar: 64px;
     z-index: 1;
 }
 
-// Large devices (desktops, 992px and up)
 @media (max-width: 992px) {
     .nav-container {
         display: none !important;
@@ -117,14 +131,17 @@ $height-topbar: 64px;
                 font-weight: 500;
             }
 
-            &:hover,
+            &:hover {
+                background-color: var(--bg-focus);
+            }
+
             &:focus {
                 color: var(--text-color);
                 background-color: var(--bg-focus);
             }
 
             &:focus .icon-chervo {
-                transform: rotate(180deg);
+                transform: rotate(45deg);
             }
 
             .icon-chervo {
@@ -133,8 +150,68 @@ $height-topbar: 64px;
             }
         }
 
+        .focus-item {
+            color: var(--text-color);
+            background-color: var(--bg-focus);
+        }
+
+        .btn-dashboard {
+            margin-bottom: 6px;
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+
+            &:hover {
+                color: var(--color-textThird);
+            }
+        }
+
         .sidebar-childre-item {
             padding-left: 44px;
         }
+    }
+}
+
+// Nav Draw
+.navdraw-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--bg-dropdown);
+    width: 30%;
+    height: 100vh;
+
+    .btn-navdraw {
+        color: white;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        border-radius: 0;
+        font-weight: 400;
+        padding: 0 24px;
+    }
+
+    .icon-close {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        width: 100%;
+        height: 64px;
+        padding-right: 24px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .wallet,
+    .download,
+    .language {
+        display: none !important;
+    }
+
+    .icon-bars {
+        display: flex !important;
     }
 }

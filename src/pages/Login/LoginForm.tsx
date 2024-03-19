@@ -12,13 +12,13 @@ import { IFormLogin } from '../../models/ILogin';
 import loginSchema from '../../schema/LoginSchema';
 import { ShowFormErrorMessage } from '../../component/Input/ShowFormErrorMessage';
 import { cx } from './Login';
-import { IUser, defaultUser } from '../../models/ILogin';
+import { IUser, defaultUser } from '../../models/IUser';
 import { getAllUserById } from '../../services/userApi';
 import { AuthData } from '../../layout/context/layoutContext';
 
 const LoginForm = () => {
     const { t } = useTranslation(['Login']);
-    const [users, setUsers] = useState<IUser[]>(defaultUser);
+    const [users, setUsers] = useState<IUser[]>([defaultUser]);
     const { setAuthenticated } = AuthData();
     const navigate = useNavigate();
 

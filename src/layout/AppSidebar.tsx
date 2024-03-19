@@ -1,13 +1,18 @@
 import { useState } from 'react';
 import { IconChervo } from '../assets/Icon/icon';
 import { cx } from './Layout';
-import { DashBoard } from '../store/storeLayout';
+import { DashBoard } from '../store/storeDashBoard';
 import { useTranslation } from 'react-i18next';
+import { Button } from '../component/Button/Button';
+import { useNavigate } from 'react-router-dom';
+
 const AppSidebar = () => {
     const { t } = useTranslation(['DashBoard']);
     const [titles, setTitle] = useState<string[]>(['']);
+    const [stateFocus, setStateFocus] = useState<string>(DashBoard[0].title);
+    const navigate = useNavigate();
 
-    const handleShowItem = (title: string) => {
+    const handleShowItem = (path?: string, title?: string) => {
         DashBoard.map((dashBoardItem) => {
             if (!!dashBoardItem.children && dashBoardItem.title === title) {
                 if (titles.includes(title)) {
@@ -15,6 +20,12 @@ const AppSidebar = () => {
                 } else {
                     setTitle((prev) => [...prev, title]);
                 }
+            } else {
+                navigate(path ? path : '');
+            }
+
+            if (title) {
+                setStateFocus(title);
             }
         });
     };
@@ -23,22 +34,24 @@ const AppSidebar = () => {
             <ul className={cx('sidebar-list')}>
                 {DashBoard.map((dashBoardItem, index) => (
                     <>
-                        <button
-                            onClick={() => handleShowItem(dashBoardItem.title)}
+                        <Button
                             key={index}
-                            className={cx('sidebar-btn')}
+                            leftIcon={dashBoardItem.icon}
+                            twoIcon
+                            className={cx(stateFocus === dashBoardItem.title ? 'focus-item' : '', 'btn-dashboard')}
+                            rightIcon={dashBoardItem.children ? <IconChervo width="2.0rem" height="2rem" /> : null}
+                            onClick={() => handleShowItem(dashBoardItem.path, dashBoardItem.title)}
                         >
-                            <div>
-                                <span className={cx('sidebar-icon')}>{<dashBoardItem.icon />}</span>
-                                <span className={cx('title')}>{t(dashBoardItem.title)}</span>
-                            </div>
-                            {dashBoardItem.children && (
-                                <span className={cx('icon-chervo')}>{<IconChervo width="2.0rem" height="2rem" />}</span>
-                            )}
-                        </button>
+                            {t(dashBoardItem.title)}
+                        </Button>
+
                         {titles.includes(dashBoardItem.title) &&
                             dashBoardItem.children?.map((item, index) => (
-                                <button key={index} className={cx('sidebar-btn', 'sidebar-childre-item')}>
+                                <button
+                                    onClick={() => handleShowItem(item.path)}
+                                    key={index}
+                                    className={cx('sidebar-btn', 'sidebar-childre-item')}
+                                >
                                     <div>
                                         <span className={cx('sidebar-icon')}></span>
                                         <span className={cx('title')}>{t(item.title)}</span>

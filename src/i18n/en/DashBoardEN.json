@@ -8,5 +8,15 @@
     "usertype": "User Type",
     "following": "Following",
     "follower": "Follower",
-    "getstarted": "Get Started"
+    "getstarted": "Get Started",
+    "pending": "Pending",
+    "verify": "Verify",
+    "indentifycation": "Indentifycation",
+    "estimated_balance": "Estimated Balance",
+    "cashin": "Cash In",
+    "withdraw": "With Draw",
+    "deposit": "Deposit",
+    "overview": "Overview",
+    "spot": "Spot",
+    "margin": "Margin"
 }

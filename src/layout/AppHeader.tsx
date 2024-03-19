@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Logo } from '../assets/Icon/icon';
+import { IconBars, Logo } from '../assets/Icon/icon';
 import { cx } from './Layout';
 import NavigateItem from '../component/Menu/NavigateItem';
 import { useTranslation } from 'react-i18next';
@@ -7,11 +7,23 @@ import { IconAction, NAV } from '../store/storeLayout';
 import NavigateIcon from '../component/Menu/NavigateIcon';
 import { Button } from '../component/Button/Button';
 import DropDown from '../component/Menu/DropDown/DropDown';
-import { getAccessTokenFromLocalStorage } from '../utils/auth';
+import { getAccessFromLocalStorage } from '../utils/auth';
+import { AuthData } from './context/layoutContext';
+import { useState } from 'react';
 
 const AppHeader = () => {
     const { t } = useTranslation(['Header']);
-    const isAuth = getAccessTokenFromLocalStorage();
+    const isAuth = getAccessFromLocalStorage();
+    const { setShowNavDraw } = AuthData();
+    const [showDropDown, setShowDropDown] = useState<string>(IconAction[0].title);
+
+    const handleShowDropDownEnter = (title: string) => {
+        setShowDropDown(title);
+    };
+
+    const handleShowDropDownLeave = () => {
+        setShowDropDown('');
+    };
 
     return (
         <div className={cx('topbar-main-container')}>
@@ -46,7 +58,16 @@ const AppHeader = () => {
                 <div className={cx('topbar-action')}>
                     {IconAction.map((action, index) =>
                         !!action.icon ? (
-                            <NavigateIcon key={index}>{<action.icon />}</NavigateIcon>
+                            <div
+                                onMouseLeave={() => handleShowDropDownLeave()}
+                                onMouseEnter={() => handleShowDropDownEnter(action.title)}
+                                className={cx('topbar-action-item')}
+                            >
+                                <NavigateIcon className={cx(action.title)} key={index}>
+                                    {<action.icon />}
+                                </NavigateIcon>
+                                {showDropDown === action.title && action.dropdown}
+                            </div>
                         ) : (
                             <div className={cx('topbar-deposit')}>
                                 <Button leftIcon={action.button.iconleft} primary small>
@@ -55,6 +76,10 @@ const AppHeader = () => {
                             </div>
                         ),
                     )}
+
+                    <NavigateIcon onClick={setShowNavDraw} className={cx('icon-bars')}>
+                        <IconBars />
+                    </NavigateIcon>
                 </div>
             )}
         </div>

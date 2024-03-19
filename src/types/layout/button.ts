@@ -8,6 +8,7 @@ export interface IButton {
     primary?: boolean;
     active?: boolean;
     secondary?: boolean;
+    twoIcon?: boolean;
     outline?: boolean;
     text?: boolean;
     small?: boolean;

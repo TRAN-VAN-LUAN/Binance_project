@@ -1,51 +1,50 @@
 import classNames from 'classnames/bind';
 import styles from './DashBoardItem.module.scss';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Button } from '../Button/Button';
+import { useTranslation } from 'react-i18next';
+import { IClock, IconPrice } from '../../assets/Icon/icon';
 const cx = classNames.bind(styles);
 
 interface IDashBoardVoucher {
     id?: number;
-    name?: string;
+    name: string;
     subTitle?: string;
     price?: string;
     state?: boolean;
-    active?: {
+    setStateActive: (nameActive: string) => void;
+    active: {
         subTitle1?: string;
         subTextPrimary?: string;
         subTitle2?: string;
-        time?: string;
-        state?: string;
+        time: string;
+        state: string;
     };
 }
 
 const DashBoardVoucher: FC<IDashBoardVoucher> = (props) => {
-    const { id, name, subTitle, price, state } = props;
-    // function getCountdown(){
+    const { id, name, subTitle, price, state, setStateActive } = props;
+    const [day, setDay] = useState<number>(0);
+    const [hour, setHour] = useState<number>(0);
+    const [minute, setMinute] = useState<number>(0);
+    const { t } = useTranslation(['DashBoard']);
 
-    //     // find the amount of "seconds" between now and target
-    //     var current_date = new Date().getTime();
-    //     var
-    //     // var seconds_left = (target_date - current_date) / 1000;
+    const dbDisabled: boolean = props.active?.state === 'pending' ? true : false;
+    const date = new Date(props.active.time).getTime();
 
-    //     // days = pad( parseInt(seconds_left / 86400) );
-    //     // seconds_left = seconds_left % 86400;
-
-    //     // hours = pad( parseInt(seconds_left / 3600) );
-    //     // seconds_left = seconds_left % 3600;
-
-    //     // minutes = pad( parseInt(seconds_left / 60) );
-    //     // seconds = pad( parseInt( seconds_left % 60 ) );
-    // }
-
-    // const countDown = () => {
-    //     if()
-    // }
-
-    console.log(new Date().getTime());
+    const countDown = setInterval(() => {
+        let now = new Date().getTime();
+        let distance = date - now;
+        setDay(Math.floor(distance / (1000 * 60 * 60 * 24)));
+        setHour(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+        setMinute(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+        if (distance < 0) {
+            clearInterval(countDown);
+        }
+    }, 1000);
 
     return (
-        <div className={cx('voucher')}>
+        <div className={cx('voucher')} onClick={() => setStateActive(name)}>
             {state ? (
                 <>
                     <div className={cx('voucher-id', 'voucher-id-active')}>
@@ -57,13 +56,32 @@ const DashBoardVoucher: FC<IDashBoardVoucher> = (props) => {
                             <span className={cx('title')}>
                                 {props.active?.subTitle1}
                                 <span className={cx('text-primary')}>{props.active?.subTextPrimary}</span>
-                                {props.active?.subTitle2}
+                                <span className={cx('text-hidden')}></span>
                             </span>
 
-                            <Button primary>{name}</Button>
+                            <div className={cx('voucher-time')}>
+                                <li>
+                                    {day}
+                                    <span>Days</span>
+                                </li>
+                                <li>
+                                    {hour}
+                                    <span>Hours</span>
+                                </li>
+                                <li>
+                                    {minute}
+                                    <span>Minutes</span>
+                                </li>
+                            </div>
+
+                            <div className={cx('btn-s')}>
+                                <Button disabled={dbDisabled} small primary>
+                                    {t(name)}
+                                </Button>
+                            </div>
                         </div>
                         <div className={cx('content-gif')}>
-                            <img src="https://bin.bnbstatic.com/static/images/mainuc/dashboard/408x408_purple.gif" />
+                            <div className={cx('voucher-gif')}></div>
                         </div>
                     </div>
                 </>
@@ -76,9 +94,24 @@ const DashBoardVoucher: FC<IDashBoardVoucher> = (props) => {
                     <div className={cx('voucher-inactive', 'voucher-item')}>
                         <div className={cx('voucher-inactive-item')}>
                             <span>{subTitle}</span>
-                            <span>{price}</span>
+                            <span>
+                                <IconPrice />
+                                {price}
+                            </span>
                         </div>
-                        <Button>{props.active?.state}</Button>
+
+                        {dbDisabled ? (
+                            <div className={cx('voucher-state')}>
+                                <IClock />
+                                <span> {t(props.active.state)}</span>
+                            </div>
+                        ) : (
+                            <div className={cx('btn-s')}>
+                                <Button disabled={dbDisabled} small primary>
+                                    {t(name)}
+                                </Button>
+                            </div>
+                        )}
                     </div>
                 </>
             )}

@@ -7,8 +7,13 @@ export const AuthData = () => useContext(AuthContext);
 
 export const LayoutProvider = ({ children }: childComponentProps) => {
     const [auth, setAuth] = useState<boolean>(defaultLayout.isAuthenticated);
+    const [navDraw, setNavDraw] = useState<boolean>(false);
 
     const valueLayoutProvider: ILayoutProvider = {
+        showNavDraw: navDraw,
+        setShowNavDraw: () => {
+            setNavDraw(!navDraw);
+        },
         isAuthenticated: auth,
         setAuthenticated: () => {
             setAuth(!auth);

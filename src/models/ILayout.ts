@@ -1,6 +1,8 @@
 import { ReactNode } from 'react';
 
 export interface ILayoutProvider {
+    showNavDraw?: boolean;
+    setShowNavDraw?: () => void;
     isAuthenticated: boolean;
     setAuthenticated?: () => void;
 }
