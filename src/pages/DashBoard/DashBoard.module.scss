@@ -6,7 +6,8 @@
     .container {
         width: 100%;
         z-index: 0;
-        padding: 0 24px;
+        padding-right: 24px;
+        padding-left: var(--dynamic-dashboard-left);
     }
 }
 
@@ -134,11 +135,13 @@
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
     .container {
         max-width: calc(936px + var(--dynamic-dashboard-left));
     }
 }
+
+
 
 // Large devices (desktops, 992px and up)
 @media (max-width: 992px) {
@@ -149,6 +152,10 @@
 
         .dashboard-container {
             height: 100%;
+        }
+
+        .container {
+            padding-left: 24px;
         }
     }
 

@@ -44,7 +44,7 @@ const DashBoardVoucher: FC<IDashBoardVoucher> = (props) => {
     }, 1000);
 
     return (
-        <div className={cx('voucher')} onClick={() => setStateActive(name)}>
+        <div className={cx('voucher', state ? 'active' : '')}  onClick={() => setStateActive(name)}>
             {state ? (
                 <>
                     <div className={cx('voucher-id', 'voucher-id-active')}>

@@ -93,7 +93,7 @@ $height-topbar: 64px;
 .sidebar-main-container {
     --width-sidebar: 248px;
     padding-top: 24px;
-    width: var(--width-sidebar);
+    min-width: var(--width-sidebar);
 
     .sidebar-list {
         width: 100%;
