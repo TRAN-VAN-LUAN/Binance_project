@@ -1,10 +1,10 @@
 import classNames from 'classnames/bind';
-import styles from './Layout.module.scss';
-import { INavDraw } from '../store/storeLayout';
-import { Button } from '../component/Button/Button';
+import styles from './AppNavDraw.module.scss';
+import { INavDraw } from '../../store/storeLayout';
+import { Button } from '../../component/Button/Button';
 import { useTranslation } from 'react-i18next';
-import { IconClose } from '../assets/Icon/icon';
-import { AuthData } from './context/layoutContext';
+import { IconClose } from '../../assets/Icon/icon';
+import { AuthData } from '../context/layoutContext';
 
 const cx = classNames.bind(styles);
 

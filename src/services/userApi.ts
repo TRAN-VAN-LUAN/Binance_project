@@ -1,17 +1,33 @@
-import { IUser } from '../models/ILogin';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import { request } from '../setup/axios/intances';
+import { getUserFromLocalStorage } from '../utils/auth';
 
-export const getAllUserById = () => {
-    return new Promise<IUser[]>((resolver, reject) => {
-        request
-            .get('user')
-            .then((res) => {
-                console.log(res.data);
-                resolver(res.data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                reject(error);
-            });
-    });
-};
+export const fetchAllUser = createAsyncThunk('user/fetchAllUser', async (_, thunkAPI) => {
+    try {
+        const response = await request.get('user', { signal: thunkAPI.signal });
+        console.log(response.data);
+        return response.data;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+});
+
+// export const login = createAsyncThunk('user/login', async (data: IFormLogin) => {
+//     try {
+//         const response = await request.post('login', data);
+//         return response.data;
+//     } catch (error) {
+//         console.error('Error:', error);
+//     }
+// });
+
+const getCurrentUserFromLocal = getUserFromLocalStorage();
+
+export const getCurrentUser = createAsyncThunk('user/currentUser', async (_) => {
+    try {
+        const response = await request.get(`user/${getCurrentUserFromLocal.id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+});

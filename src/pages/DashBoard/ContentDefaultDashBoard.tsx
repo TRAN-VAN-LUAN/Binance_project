@@ -8,7 +8,8 @@ import ItemDetails from '../../component/DashBoardItem/ItemDetails';
 import { useTranslation } from 'react-i18next';
 import DashBoardVoucher from '../../component/DashBoardItem/DashBoardVoucherActive';
 import { dashBoardVoucher } from '../../store/storeDashBoard';
-import EstimatedBalance from './DashBoardElement/EstimatedBalance';
+import EstimatedBalance from './DashBoardElement/EstimatedBalance/EstimatedBalance';
+import MarketPanel from './DashBoardElement/MarketPanel/MarketPanel';
 
 const cx = classNames.bind(styles);
 
@@ -66,6 +67,7 @@ const ContentDefaultDashBoard = () => {
                 </div>
             </div>
             <EstimatedBalance />
+            <MarketPanel />
         </>
     );
 };

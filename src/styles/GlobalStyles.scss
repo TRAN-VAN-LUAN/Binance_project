@@ -19,6 +19,7 @@
     --bg-focus: #2b3139;
     --color-bg3: #2b3139;
     --bg-disabled: #2b3139;
+    --bg-hover-market: #0b0e11;
     // Text color
     --text-color: #eaecef;
 
@@ -27,6 +28,9 @@
 
     // padding
     --dynamic-dashboard-left: calc(19.23077vw - 196.92308px);
+
+    // Croll
+    --scroll-color: #5e6673;
 }
 
 * {

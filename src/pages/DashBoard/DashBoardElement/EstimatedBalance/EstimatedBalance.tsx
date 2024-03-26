@@ -1,9 +1,9 @@
 import classNames from 'classnames/bind';
-import styles from './DashBoardElement.module.scss';
+import styles from './EstimatedBalance.module.scss';
 import { useTranslation } from 'react-i18next';
-import { Button } from '../../../component/Button/Button';
-import { EstimateBalance } from '../../../store/storeDashBoard';
-import { IconEye } from '../../../assets/Icon/icon';
+import { Button } from '../../../../component/Button/Button';
+import { EstimateBalance } from '../../../../store/storeDashBoard';
+import { IconEye } from '../../../../assets/Icon/icon';
 
 const cx = classNames.bind(styles);
 

@@ -22,3 +22,7 @@ export const getUserFromLocalStorage = (): IUser => {
 
     return storage;
 };
+
+export const clearLocalStorage = () => {
+    localStorage.removeItem('access_token');
+};

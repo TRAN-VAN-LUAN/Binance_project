@@ -1,5 +1,11 @@
+import EstimatedBalance from '../DashBoardElement/EstimatedBalance/EstimatedBalance';
+
 const DashBoardOverview = () => {
-    return <div></div>;
+    return (
+        <div>
+            <EstimatedBalance />
+        </div>
+    );
 };
 
 export default DashBoardOverview;

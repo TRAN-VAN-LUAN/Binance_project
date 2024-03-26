@@ -1,10 +1,13 @@
 import { useState } from 'react';
-import { IconChervo } from '../assets/Icon/icon';
-import { cx } from './Layout';
-import { DashBoard } from '../store/storeDashBoard';
+import { IconChervo } from '../../assets/Icon/icon';
+import { DashBoard } from '../../store/storeDashBoard';
 import { useTranslation } from 'react-i18next';
-import { Button } from '../component/Button/Button';
+import { Button } from '../../component/Button/Button';
 import { useNavigate } from 'react-router-dom';
+import classNames from 'classnames/bind';
+import styles from './AppSideBar.module.scss';
+
+const cx = classNames.bind(styles);
 
 const AppSidebar = () => {
     const { t } = useTranslation(['DashBoard']);

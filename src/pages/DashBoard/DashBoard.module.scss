@@ -141,8 +141,6 @@
     }
 }
 
-
-
 // Large devices (desktops, 992px and up)
 @media (max-width: 992px) {
     .main-container {
@@ -166,7 +164,7 @@
 }
 
 // Medium devices (tablets, 768px and up)
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .main-container .info-details {
         display: none !important;
     }

@@ -18,5 +18,11 @@
     "deposit": "Deposit",
     "overview": "Overview",
     "spot": "Spot",
-    "margin": "Margin"
+    "margin": "Margin",
+    "holding": "Holding",
+    "hot": "Hot",
+    "new_list": "New Listing",
+    "favorite": "Favorite",
+    "top_ganier": "Top Ganiers",
+    "volume": "24h Volume"
 }
