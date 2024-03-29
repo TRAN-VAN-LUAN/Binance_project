@@ -7,4 +7,5 @@ export enum marketPanelShowEnum {
     FAVORITE = 'favorite',
     TOP_GARINES = 'top_ganier',
     VOLUME = 'volume',
+    EARN = 'earn',
 }

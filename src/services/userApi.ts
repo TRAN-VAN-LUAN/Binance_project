@@ -5,7 +5,7 @@ import { getUserFromLocalStorage } from '../utils/auth';
 export const fetchAllUser = createAsyncThunk('user/fetchAllUser', async (_, thunkAPI) => {
     try {
         const response = await request.get('user', { signal: thunkAPI.signal });
-        console.log(response.data);
+        // console.log(response.data);
         return response.data;
     } catch (error) {
         console.error('Error:', error);

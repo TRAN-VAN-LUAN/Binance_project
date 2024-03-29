@@ -23,12 +23,88 @@ interface ICoin {
     action?: string;
 }
 
-interface IStoreMarket {
+export interface IStoreMarket {
     title: string;
     large?: boolean;
     titleAction?: ITitleAction[];
     coin?: ICoin[];
 }
+
+export const storeMarket_Discover: IStoreMarket[] = [
+    {
+        title: name.EARN,
+        large: true,
+        titleAction: [
+            {
+                title: 'Coins',
+                action: true,
+            },
+            {
+                title: 'Est.APR',
+                action: true,
+            },
+            {
+                title: 'Duration',
+                action: true,
+            },
+            {
+                title: 'Flexible APR',
+                action: true,
+            },
+            {
+                title: 'action',
+                action: true,
+            },
+        ],
+        coin: [
+            {
+                img: '/src/assets/img/bitcoin.png',
+                nameCoin: {
+                    name: 'BTCUSDT',
+                    sub: 'Bitcoin',
+                },
+                amount: {
+                    mount: '10.96% - 10.96%',
+                },
+                price: {
+                    price: 'flexible / fixed',
+                },
+                growth: '10.96%',
+                action: 'Cash In',
+            },
+            {
+                img: '/src/assets/img/ETH.png',
+                nameCoin: {
+                    name: 'ETHUSDT',
+                    sub: 'Ethereum',
+                },
+                amount: {
+                    mount: '0.91% - 8.90%',
+                },
+                price: {
+                    price: 'flexible',
+                },
+                growth: '0.00%',
+                action: 'Cash In',
+            },
+            {
+                img: '/src/assets/img/BNB.png',
+                nameCoin: {
+                    name: 'BNBBTC',
+                    sub: 'BNB',
+                },
+                amount: {
+                    mount: '0.00',
+                },
+                price: {
+                    price: 'flexible',
+                },
+                growth: '0.00%',
+                action: 'Cash In',
+            },
+        ],
+    },
+];
 
 export const storeMarket_Markets: IStoreMarket[] = [
     {
@@ -52,16 +128,16 @@ export const storeMarket_Markets: IStoreMarket[] = [
                 action: false,
             },
             {
-                title: 'Action',
+                title: 'action',
                 action: false,
             },
         ],
 
         coin: [
             {
-                img: 'src/assets/img/bitcoin.png',
+                img: '/src/assets/img/bitcoin.png',
                 nameCoin: {
-                    name: 'BTC',
+                    name: 'BTCUSDT',
                     sub: 'Bitcoin',
                 },
                 amount: {
@@ -76,9 +152,9 @@ export const storeMarket_Markets: IStoreMarket[] = [
                 action: 'Cash In',
             },
             {
-                img: 'src/assets/img/ETH.png',
+                img: '/src/assets/img/ETH.png',
                 nameCoin: {
-                    name: 'ETH',
+                    name: 'ETHUSDT',
                     sub: 'Ethereum',
                 },
                 amount: {
@@ -93,9 +169,9 @@ export const storeMarket_Markets: IStoreMarket[] = [
                 action: 'Cash In',
             },
             {
-                img: 'src/assets/img/BNB.png',
+                img: '/src/assets/img/BNB.png',
                 nameCoin: {
-                    name: 'BNB',
+                    name: 'BNBBTC',
                     sub: 'BNB',
                 },
                 amount: {
@@ -128,16 +204,16 @@ export const storeMarket_Markets: IStoreMarket[] = [
             },
 
             {
-                title: 'Action',
+                title: 'action',
                 action: false,
             },
         ],
 
         coin: [
             {
-                img: 'src/assets/img/BNB.png',
+                img: '/src/assets/img/BNB.png',
                 nameCoin: {
-                    name: 'BNB',
+                    name: 'BNBBTC',
                     sub: 'BNB',
                 },
 
@@ -149,9 +225,9 @@ export const storeMarket_Markets: IStoreMarket[] = [
                 action: 'Cash In',
             },
             {
-                img: 'src/assets/img/bitcoin.png',
+                img: '/src/assets/img/bitcoin.png',
                 nameCoin: {
-                    name: 'BTC',
+                    name: 'BTCUSDT',
                     sub: 'Bitcoin',
                 },
 
@@ -163,9 +239,9 @@ export const storeMarket_Markets: IStoreMarket[] = [
                 action: 'Cash In',
             },
             {
-                img: 'src/assets/img/ETH.png',
+                img: '/src/assets/img/ETH.png',
                 nameCoin: {
-                    name: 'ETH',
+                    name: 'ETHUSDT',
                     sub: 'Ethereum',
                 },
 
@@ -177,9 +253,9 @@ export const storeMarket_Markets: IStoreMarket[] = [
                 action: 'Cash In',
             },
             {
-                img: 'src/assets/img/BNB.png',
+                img: '/src/assets/img/BNB.png',
                 nameCoin: {
-                    name: 'BNB',
+                    name: 'BNBBTC',
                     sub: 'BNB',
                 },
 
@@ -191,9 +267,9 @@ export const storeMarket_Markets: IStoreMarket[] = [
                 action: 'Cash In',
             },
             {
-                img: 'src/assets/img/BNB.png',
+                img: '/src/assets/img/BNB.png',
                 nameCoin: {
-                    name: 'BNB',
+                    name: 'HSRBTC',
                     sub: 'BNB',
                 },
 
@@ -205,9 +281,9 @@ export const storeMarket_Markets: IStoreMarket[] = [
                 action: 'Cash In',
             },
             {
-                img: 'src/assets/img/BNB.png',
+                img: '/src/assets/img/BNB.png',
                 nameCoin: {
-                    name: 'BNB',
+                    name: 'OAXETH',
                     sub: 'BNB',
                 },
 
@@ -219,9 +295,9 @@ export const storeMarket_Markets: IStoreMarket[] = [
                 action: 'Cash In',
             },
             {
-                img: 'src/assets/img/bitcoin.png',
+                img: '/src/assets/img/bitcoin.png',
                 nameCoin: {
-                    name: 'BTC',
+                    name: 'ETHUSDT',
                     sub: 'Bitcoin',
                 },
 
@@ -233,9 +309,9 @@ export const storeMarket_Markets: IStoreMarket[] = [
                 action: 'Cash In',
             },
             {
-                img: 'src/assets/img/ETH.png',
+                img: '/src/assets/img/ETH.png',
                 nameCoin: {
-                    name: 'ETH',
+                    name: 'ETHUSDT',
                     sub: 'Ethereum',
                 },
 
@@ -247,9 +323,9 @@ export const storeMarket_Markets: IStoreMarket[] = [
                 action: 'Cash In',
             },
             {
-                img: 'src/assets/img/BNB.png',
+                img: '/src/assets/img/BNB.png',
                 nameCoin: {
-                    name: 'BNB',
+                    name: 'BNBBTC',
                     sub: 'BNB',
                 },
 
@@ -261,9 +337,9 @@ export const storeMarket_Markets: IStoreMarket[] = [
                 action: 'Cash In',
             },
             {
-                img: 'src/assets/img/BNB.png',
+                img: '/src/assets/img/BNB.png',
                 nameCoin: {
-                    name: 'BNB',
+                    name: 'BNBBTC',
                     sub: 'BNB',
                 },
 
@@ -298,16 +374,16 @@ export const storeMarket_Markets: IStoreMarket[] = [
                 action: false,
             },
             {
-                title: 'Action',
+                title: 'action',
                 action: false,
             },
         ],
 
         coin: [
             {
-                img: 'src/assets/img/bitcoin.png',
+                img: '/src/assets/img/bitcoin.png',
                 nameCoin: {
-                    name: 'BTC',
+                    name: 'BTCUSDT',
                     sub: 'Bitcoin',
                 },
 
@@ -343,7 +419,7 @@ export const storeMarket_Markets: IStoreMarket[] = [
                 action: true,
             },
             {
-                title: 'Action',
+                title: 'action',
                 action: false,
             },
         ],
@@ -365,16 +441,16 @@ export const storeMarket_Markets: IStoreMarket[] = [
             },
 
             {
-                title: 'Action',
+                title: 'action',
                 action: false,
             },
         ],
 
         coin: [
             {
-                img: 'src/assets/img/ETH.png',
+                img: '/src/assets/img/ETH.png',
                 nameCoin: {
-                    name: 'BTC',
+                    name: 'BTCUSDT',
                     sub: 'Bitcoin',
                 },
 
@@ -405,16 +481,16 @@ export const storeMarket_Markets: IStoreMarket[] = [
             },
 
             {
-                title: 'Action',
+                title: 'action',
                 action: false,
             },
         ],
 
         coin: [
             {
-                img: 'src/assets/img/bitcoin.png',
+                img: '/src/assets/img/bitcoin.png',
                 nameCoin: {
-                    name: 'BTC',
+                    name: 'BTCUSDT',
                     sub: 'Bitcoin',
                 },
 
