@@ -5,7 +5,7 @@ interface ITitleAction {
     action?: boolean;
 }
 
-interface ICoin {
+export interface ICoin {
     img?: string;
     nameCoin?: {
         name?: string;
@@ -504,5 +504,44 @@ export const storeMarket_Markets: IStoreMarket[] = [
                 action: 'Cash In',
             },
         ],
+    },
+];
+
+export const storePriceCoinOverview = [
+    {
+        img: '/src/assets/img/bitcoin.png',
+        nameCoin: {
+            name: 'BTCUSDT',
+            sub: 'Bitcoin',
+        },
+
+        price: {
+            price: 'flexible / fixed',
+        },
+        growth: '10.96%',
+    },
+    {
+        img: '/src/assets/img/ETH.png',
+        nameCoin: {
+            name: 'ETHUSDT',
+            sub: 'Ethereum',
+        },
+
+        price: {
+            price: 'flexible',
+        },
+        growth: '0.00%',
+    },
+    {
+        img: '/src/assets/img/BNB.png',
+        nameCoin: {
+            name: 'BNBBTC',
+            sub: 'BNB',
+        },
+
+        price: {
+            price: 'flexible',
+        },
+        growth: '0.00%',
     },
 ];

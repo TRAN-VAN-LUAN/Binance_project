@@ -28,7 +28,7 @@ const AppHeader = () => {
     return (
         <div className={cx('topbar-main-container')}>
             <div className={cx('topbar-nav')}>
-                <Link to="/" className={cx('topbar-logo')}>
+                <Link to="overview" className={cx('topbar-logo')}>
                     <Logo width="12rem" height="2.4rem" />
                 </Link>
                 {isAuth && (

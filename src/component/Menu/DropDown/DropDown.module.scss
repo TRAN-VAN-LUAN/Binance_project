@@ -117,3 +117,30 @@
         }
     }
 }
+
+// languge-container
+
+.languge-container {
+    padding: 24px;
+    left: -400%;
+    min-width: 200px;
+
+    &::before {
+        left: auto;
+        right: -10px;
+    }
+
+    .languge-item {
+        padding: 6px 0;
+        cursor: pointer;
+        font-size: 1.4rem;
+        font-weight: 500;
+        &:hover {
+            @include hoverPrimary();
+        }
+    }
+
+    .primary {
+        color: var(--primary);
+    }
+}

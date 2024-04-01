@@ -10,7 +10,11 @@ const resources = {
 
 i18n.use(initReactI18next).init({
     resources,
-    lng: 'en',
+    lng: localStorage.getItem('language') ?? 'vn',
+
+    interpolation: {
+        escapeValue: false, // not needed for react!!
+    },
 });
 
 export default i18n;

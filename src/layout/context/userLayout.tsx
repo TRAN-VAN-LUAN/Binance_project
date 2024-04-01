@@ -8,15 +8,15 @@ const UserProvider: React.FC = () => {
 
     useEffect(() => {
         dispatch(getCurrentUser());
-        // dispatch(getCoinApi());
+        dispatch(getCoinApi());
     }, []);
 
-    useEffect(() => {
-        const callCoinApi = setInterval(() => {
-            dispatch(getCoinApi());
-        }, 10000);
-        return () => clearInterval(callCoinApi);
-    }, []);
+    // useEffect(() => {
+    //     const callCoinApi = setInterval(() => {
+    //         dispatch(getCoinApi());
+    //     }, 10000);
+    //     return () => clearInterval(callCoinApi);
+    // }, []);
     return null;
 };
 

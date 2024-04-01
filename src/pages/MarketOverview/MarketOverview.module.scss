@@ -1,0 +1,90 @@
+.main-container {
+    padding: 48px 0;
+    width: 100%;
+
+    .container {
+        margin: 0 59px;
+        padding: 0 24px;
+        max-width: 1248px;
+
+        .content {
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            .content-info {
+                width: 49%;
+                .list-info {
+                    padding-top: 24px;
+                    flex: 1 1;
+                    margin-bottom: 40px;
+
+                    .info-primary {
+                        font-size: 6.8rem;
+                        line-height: 7.2rem;
+                        font-weight: 600;
+                        color: var(--primary);
+
+                        span {
+                            color: var(--text-color);
+                        }
+                    }
+                }
+
+                .estimate-content {
+                    display: flex;
+                    flex-direction: column;
+                    grid-gap: 8px;
+                    gap: 8px;
+
+                    .estimate-title {
+                        font-size: 1.4rem;
+                    }
+
+                    .estimate-money {
+                        display: flex;
+                        font-size: 1.4rem;
+                        align-items: center;
+                        height: 48px;
+
+                        .text-primary {
+                            font-size: 4rem;
+                            font-weight: 600;
+                            margin-left: 0;
+                        }
+
+                        span {
+                            margin-left: 10px;
+                        }
+                    }
+                }
+
+                .verify {
+                    margin-top: 40px;
+                    display: flex;
+
+                    .btn-verify {
+                        padding: 0 32px;
+                        margin-right: 15px;
+                    }
+
+                    .verify-tutorial {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+
+            .content-coinprice {
+                width: 40%;
+
+                .wrapper-panel {
+                    padding: 16px;
+                    padding-left: 26px;
+                    border-radius: 20px;
+                    background-color: var(--bg-dropdown);
+                }
+            }
+        }
+    }
+}

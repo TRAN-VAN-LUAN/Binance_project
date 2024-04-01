@@ -1,5 +1,5 @@
 {
-    "dashdoard": "DashBoard",
+    "dashboard": "DashBoard",
     "assets": "Assets",
     "account": "Account",
     "setting": "Setting",
@@ -25,5 +25,7 @@
     "favorite": "Favorite",
     "top_ganier": "Top Ganiers",
     "volume": "24h Volume",
-    "earn": "Earn"
+    "earn": "Earn",
+    "markets": "Markets",
+    "discover": "Discover"
 }

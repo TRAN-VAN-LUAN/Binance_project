@@ -15,7 +15,9 @@ const cx = classNames.bind(styles);
 
 const ContentDefaultDashBoard = () => {
     const { t } = useTranslation(['DashBoard']);
+
     const [active, setActive] = useState<string>('deposit');
+
     return (
         <>
             <div className={cx('dashboard-header')}>

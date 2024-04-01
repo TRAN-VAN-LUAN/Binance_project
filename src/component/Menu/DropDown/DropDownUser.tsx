@@ -15,7 +15,7 @@ export const cx = classNames.bind(styles);
 const DropDownUser = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const { t } = useTranslation(['Header']);
+    const { t } = useTranslation(['DashBoard']);
     const currentUser = useSelector((state: RootState) => state.user.currentUser);
 
     const handleNavigate = (path?: string) => {
