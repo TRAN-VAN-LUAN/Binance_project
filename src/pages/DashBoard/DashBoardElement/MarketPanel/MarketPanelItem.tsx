@@ -25,7 +25,7 @@ const MarketPanelItem = (props: PropsMarketsPanel) => {
 
     useEffect(() => {
         const callCoinApi = setInterval(() => {
-            dispatch(getCoinApi());
+            // dispatch(getCoinApi());
         }, 120000);
         return () => clearInterval(callCoinApi);
     }, []);

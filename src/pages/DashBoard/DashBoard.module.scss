@@ -19,6 +19,7 @@
     height: var(--height-dashboard-header);
     padding-top: 24px;
     margin-bottom: 16px;
+    color: var(--text-color);
 
     .info {
         position: relative;
@@ -126,6 +127,7 @@
         padding-bottom: 24px;
         font-weight: 500;
         line-height: 2.8rem;
+        color: var(--text-color);
     }
 
     .voucher {

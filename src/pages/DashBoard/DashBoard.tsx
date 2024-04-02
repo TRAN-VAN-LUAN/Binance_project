@@ -7,10 +7,12 @@ import UserProvider from '../../layout/context/userLayout';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import Loading from '../Loading/Loading';
+import { AuthData } from '../../layout/context/layoutContext';
 
 const cx = classNames.bind(styles);
 
 const DashBoard = () => {
+    const { theme } = AuthData();
     const isLoading = useSelector((state: RootState) => state.user.isLoading);
 
     return (
@@ -20,7 +22,7 @@ const DashBoard = () => {
             {isLoading ? (
                 <Loading />
             ) : (
-                <div className={cx('main-container')}>
+                <div className={cx('main-container', theme)}>
                     <AppSidebar />
                     <div className={cx('container')}>
                         <Outlet />

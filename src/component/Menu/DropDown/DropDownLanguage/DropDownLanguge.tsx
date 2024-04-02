@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
-import styles from './DropDown.module.scss';
-import { IListLanguge } from '../../../store/storeLayout';
+import styles from '../DropDown.module.scss';
+import { IListLanguge } from '../../../../store/storeLayout';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 

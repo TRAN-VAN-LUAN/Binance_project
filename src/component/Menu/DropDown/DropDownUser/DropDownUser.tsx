@@ -1,14 +1,14 @@
 import classNames from 'classnames/bind';
-import styles from './DropDown.module.scss';
-import { StoreDashBoardUser } from '../../../store/storeDashBoard';
-import { Button } from '../../Button/Button';
-import { DashBoard } from '../../../store/storeDashBoard';
+import styles from '../DropDown.module.scss';
+import { StoreDashBoardUser } from '../../../../store/storeDashBoard';
+import { Button } from '../../../Button/Button';
+import { DashBoard } from '../../../../store/storeDashBoard';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '../../../store';
-import { IconLogout } from '../../../assets/Icon/icon';
-import { logout } from '../../../slice/useSlice';
+import { RootState, useAppDispatch } from '../../../../store';
+import { IconLogout } from '../../../../assets/Icon/icon';
+import { logout } from '../../../../slice/useSlice';
 import { useEffect } from 'react';
 
 export const cx = classNames.bind(styles);

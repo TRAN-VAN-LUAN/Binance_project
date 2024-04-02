@@ -3,25 +3,26 @@
 :root {
     // Color
     --primary: #fcd535;
-    --black: #000000;
     --white: #ffffff;
+    --black: #000000;
+
+    // --black: #000000;
     --gray: #474d57;
     --color-primaryHover: #f0b90b;
     --color-textThird: #848e9c;
     --color-textDisabled: #5e6673;
-    --color-line: #2b3139;
+
     --color-iconNormal: #848e9c;
     --color-disabled: #5e6673;
 
     // Background color
-    --bg-primary: #181a20;
-    --bg-dropdown: #1e2329;
-    --bg-focus: #2b3139;
+    // --bg-primary: #181a20;
+
     --color-bg3: #2b3139;
     --bg-disabled: #2b3139;
-    --bg-hover-market: #0b0e11;
+
     // Text color
-    --text-color: #eaecef;
+    // --text-color: #eaecef;
 
     // Header variable
     --height-header: 64px;
@@ -52,6 +53,28 @@ body {
     text-rendering: optimizeSpeed;
 }
 
+.light {
+    --text-color: #1e2329;
+    --bg-primary: #ffffff;
+    --bg-focus: #f5f5f5;
+    --bg-dropdown: #fafafa;
+    --color-btn: #f5f5f5;
+    --bg-hover-market: #fafafa;
+    --color-hover-device: #f1f2f4;
+    --color-line: #eaecef;
+}
+
+.dark {
+    --text-color: #eaecef;
+    --bg-primary: #181a20;
+    --bg-focus: #2b3139;
+    --bg-dropdown: #1e2329;
+    --color-btn: #2b3139;
+    --bg-hover-market: #0b0e11;
+    --color-hover-device: #252a32;
+    --color-line: #2b3139;
+}
+
 button,
 input,
 [tabindex] {
@@ -63,6 +86,14 @@ a[href] {
     text-decoration: none;
     color: var(--text-color);
 }
+
+// .w-1\/2 {
+//     width: 50% !important;
+// }
+
+// .flex {
+//     display: flex;
+// }
 
 // font family
 @font-face {

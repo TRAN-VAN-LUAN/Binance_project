@@ -5,6 +5,8 @@ export interface ILayoutProvider {
     setShowNavDraw?: () => void;
     isAuthenticated: boolean;
     setAuthenticated?: () => void;
+    setToggleThem: () => void;
+    theme?: string;
 }
 
 export const defaultLayout: ILayoutProvider = {

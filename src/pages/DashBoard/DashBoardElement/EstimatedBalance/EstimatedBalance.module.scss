@@ -1,6 +1,7 @@
 @import '../../../../styles/styles/mixin.scss';
 
 .estimate-container {
+    color: var(--text-color);
     @include DefaultLayoutDashBoardElement();
 
     .estimate-main {

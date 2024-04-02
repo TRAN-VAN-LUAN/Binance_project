@@ -10,10 +10,10 @@ import { AuthData } from './context/layoutContext';
 export const cx = classNames.bind(styles);
 
 const Layout = () => {
-    const { showNavDraw } = AuthData();
+    const { showNavDraw, theme } = AuthData();
     return (
         <>
-            <div className={cx('main-container')}>
+            <div className={cx('main-container', theme)}>
                 <div className={cx('main')}>
                     <AppTopbar />
                     {showNavDraw && <AppNavDraw />}

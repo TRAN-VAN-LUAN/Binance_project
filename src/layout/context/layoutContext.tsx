@@ -6,6 +6,7 @@ import { RootState, useAppDispatch } from '../../store';
 import { IUser } from '../../models/IUser';
 import { fetchAllUser } from '../../services/userApi';
 
+type Theme = 'light' | 'dark';
 const AuthContext = createContext<ILayoutProvider>(defaultLayout);
 export const AuthData = () => useContext(AuthContext);
 
@@ -13,6 +14,13 @@ export const LayoutProvider = ({ children }: childComponentProps) => {
     const [auth, setAuth] = useState<boolean>(defaultLayout.isAuthenticated);
     const [navDraw, setNavDraw] = useState<boolean>(false);
     let listUser = useSelector((state: RootState) => state.user.listUser);
+
+    const [theme, setTheme] = useState<Theme>('dark');
+
+    const toggleTheme = () => {
+        setTheme(theme === 'light' ? 'dark' : 'light');
+    };
+
     const dispatch = useAppDispatch();
     const [users, setUsers] = useState<IUser[]>(listUser);
 
@@ -25,6 +33,8 @@ export const LayoutProvider = ({ children }: childComponentProps) => {
         setAuthenticated: () => {
             setAuth(!auth);
         },
+        setToggleThem: () => toggleTheme(),
+        theme: theme,
     };
 
     useEffect(() => {

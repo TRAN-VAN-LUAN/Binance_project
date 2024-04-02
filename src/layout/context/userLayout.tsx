@@ -8,7 +8,7 @@ const UserProvider: React.FC = () => {
 
     useEffect(() => {
         dispatch(getCurrentUser());
-        dispatch(getCoinApi());
+        // dispatch(getCoinApi());
     }, []);
 
     // useEffect(() => {

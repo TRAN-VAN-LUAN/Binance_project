@@ -11,6 +11,7 @@ interface IInputProps {
     className?: string;
     placeholder?: string;
     type?: string;
+    role?: string;
     label?: string;
     onChange?: any;
     onBlur?: any;
@@ -20,8 +21,8 @@ interface IInputProps {
 }
 
 const Input = forwardRef<HTMLInputElement, IInputProps>((props, ref) => {
-    const { id, className, placeholder, type, errorMessage } = props;
-    const { TEXT, PASSWORD } = inputTypes;
+    const { id, className, placeholder, type, role, errorMessage } = props;
+    const { TEXT, PASSWORD, CHECKBOX } = inputTypes;
     const classes = cx('input', {
         [className as string]: className,
     });
@@ -47,6 +48,16 @@ const Input = forwardRef<HTMLInputElement, IInputProps>((props, ref) => {
                         className={classes}
                         placeholder={placeholder}
                         ref={ref}
+                        type={type}
+                        onChange={(e) => props.onChange(e.target.value)}
+                    ></input>
+                );
+            case CHECKBOX:
+                return (
+                    <input
+                        id={id}
+                        className={classes}
+                        role={role}
                         type={type}
                         onChange={(e) => props.onChange(e.target.value)}
                     ></input>

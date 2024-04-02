@@ -14,7 +14,7 @@ import { useState } from 'react';
 const AppHeader = () => {
     const { t } = useTranslation(['Header']);
     const isAuth = getAccessFromLocalStorage();
-    const { setShowNavDraw } = AuthData();
+    const { setShowNavDraw, theme } = AuthData();
     const [showDropDown, setShowDropDown] = useState<string>(IconAction[0].title);
 
     const handleShowDropDownEnter = (title: string) => {
@@ -26,7 +26,7 @@ const AppHeader = () => {
     };
 
     return (
-        <div className={cx('topbar-main-container')}>
+        <div className={cx('topbar-main-container', theme)}>
             <div className={cx('topbar-nav')}>
                 <Link to="overview" className={cx('topbar-logo')}>
                     <Logo width="12rem" height="2.4rem" />
