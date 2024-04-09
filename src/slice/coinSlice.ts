@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCoinApi } from '../services/coinApI';
+import { getCoinApi, getCoinPriceByName } from '../services/coinApI';
 
 export interface ICoins {
     symbol?: string;
@@ -25,14 +25,25 @@ export interface ICoins {
     count?: number;
 }
 
+export interface ICoinChart {
+    id?: string;
+    price?: string;
+    qty?: string;
+    quote_qty?: string;
+    time?: string;
+    is_buyer_maker?: boolean;
+}
+
 interface IInitCoin {
     listCoin: ICoins[];
+    listDetailACoin: ICoinChart[];
     isLoading?: boolean;
     isError?: boolean;
 }
 
 const initCoin: IInitCoin = {
     listCoin: [] as ICoins[],
+    listDetailACoin: [] as ICoinChart[],
     isLoading: false,
     isError: false,
 };
@@ -56,7 +67,20 @@ export const coinSlice = createSlice({
                 state.isError = true;
                 state.isLoading = false;
             });
-        builder;
+        builder
+            .addCase(getCoinPriceByName.pending, (state) => {
+                state.isLoading = true;
+                state.isError = false;
+            })
+            .addCase(getCoinPriceByName.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isError = false;
+                state.listDetailACoin = action.payload;
+            })
+            .addCase(getCoinPriceByName.rejected, (state) => {
+                state.isError = true;
+                state.isLoading = false;
+            });
     },
 });
 

@@ -19,6 +19,11 @@ $height-small: 32px;
     .title {
         flex: 1;
     }
+
+    .icon-left,
+    .icon-right {
+        display: flex;
+    }
 }
 
 .primary {
@@ -35,9 +40,11 @@ $height-small: 32px;
     font-weight: 500;
     padding: 0 12px;
     height: 32px;
-    background-color: var(--color-line);
+    background-color: var(--color-active);
     color: white;
     border-radius: 6px;
+    grid-gap: 11px;
+    gap: 11px;
 
     &:hover,
     &:focus {

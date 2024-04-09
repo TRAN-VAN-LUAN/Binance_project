@@ -10,3 +10,13 @@ export const getCoinApi = createAsyncThunk('coin/getCoinApi', async (_) => {
         console.error('Error:', error);
     }
 });
+
+export const getCoinPriceByName = createAsyncThunk('coin/getCoinPriceByName', async (_) => {
+    try {
+        const response = await axios.get(`http://localhost:3000/BTCUSDT`);
+        console.log(response.data);
+        return response.data;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+});

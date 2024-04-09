@@ -13,30 +13,47 @@ interface IInputProps {
     type?: string;
     role?: string;
     label?: string;
-    onChange?: any;
-    onBlur?: any;
+    outline?: boolean;
+    value?: number | string;
+    onChange?: () => void;
+    onBlur?: () => void;
     required?: boolean;
     disabled?: boolean;
     errorMessage?: ReactElement;
 }
 
 const Input = forwardRef<HTMLInputElement, IInputProps>((props, ref) => {
-    const { id, className, placeholder, type, role, errorMessage } = props;
-    const { TEXT, PASSWORD, CHECKBOX } = inputTypes;
-    const classes = cx('input', {
-        [className as string]: className,
-    });
+    const { id, className, placeholder, type, role, errorMessage, value, outline, onChange } = props;
+    const { TEXT, PASSWORD, CHECKBOX, NUMBER } = inputTypes;
+
     const renderInput = () => {
         switch (type) {
             case TEXT:
                 return (
                     <input
                         id={id}
-                        className={classes}
+                        className={cx('input', {
+                            [className as string]: className,
+                        })}
                         placeholder={placeholder}
                         ref={ref}
                         type={type}
-                        onChange={(e) => props.onChange(e.target.value)}
+                        onChange={() => onChange}
+                    ></input>
+                );
+                break;
+            case NUMBER:
+                return (
+                    <input
+                        id={id}
+                        className={cx('input', 'number', {
+                            [className as string]: className,
+                        })}
+                        placeholder={placeholder}
+                        ref={ref}
+                        value={value && value}
+                        type={type}
+                        onChange={onChange}
                     ></input>
                 );
                 break;
@@ -45,46 +62,48 @@ const Input = forwardRef<HTMLInputElement, IInputProps>((props, ref) => {
                 return (
                     <input
                         id={id}
-                        className={classes}
+                        className={cx('input', {
+                            [className as string]: className,
+                        })}
                         placeholder={placeholder}
                         ref={ref}
                         type={type}
-                        onChange={(e) => props.onChange(e.target.value)}
+                        onChange={() => onChange}
                     ></input>
                 );
             case CHECKBOX:
                 return (
                     <input
                         id={id}
-                        className={classes}
+                        className={cx('input', {
+                            [className as string]: className,
+                        })}
                         role={role}
+                        ref={ref}
                         type={type}
-                        onChange={(e) => props.onChange(e.target.value)}
+                        value={value}
+                        onChange={() => onChange}
                     ></input>
                 );
             default:
                 return (
                     <input
                         id={id}
-                        className={classes}
+                        className={cx('input', {
+                            [className as string]: className,
+                        })}
                         placeholder={placeholder}
                         ref={ref}
                         type={type}
-                        onChange={(e) => props.onChange(e.target.value)}
+                        value={value}
+                        onChange={() => onChange}
                     ></input>
                 );
         }
     };
     return (
         <div className={cx('container')}>
-            <div className={cx('wrapper')}>
-                {/* {
-                    <label htmlFor={id} className="font-bold block">
-                        {label} {props.required && <span className="text-red-500">*</span>}
-                    </label>
-                } */}
-                {renderInput()}
-            </div>
+            <div className={cx('wrapper', { outline })}>{renderInput()}</div>
             {errorMessage && errorMessage}
         </div>
     );

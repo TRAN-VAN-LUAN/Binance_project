@@ -1181,3 +1181,22 @@ export const ImageQR = ({
         ></path>
     </svg>
 );
+
+export const IconShare = ({
+    className,
+    width = '1.6rem',
+    height = '1.6rem',
+}: {
+    className?: string;
+    width?: string;
+    height?: string;
+}) => (
+    <svg className={className} width={width} height={height} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M16.5 10a3.5 3.5 0 10-3.476-3.09L8.62 9.216a3.5 3.5 0 100 5.568l4.403 2.306a3.5 3.5 0 101.16-2.214L9.94 12.652a3.52 3.52 0 000-1.304l4.245-2.224A3.487 3.487 0 0016.5 10z"
+            fill="currentColor"
+        ></path>
+    </svg>
+);

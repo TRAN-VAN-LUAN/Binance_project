@@ -3,7 +3,7 @@ import styles from './MarketOverview.module.scss';
 import { EstimateBalance } from '../../store/storeDashBoard';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../../component/Button/Button';
-import { storePriceCoinOverview } from '../../store/storeMarketPanel';
+import { ICoin, storePriceCoinOverview } from '../../store/storeMarketPanel';
 import MarketPanelItem from '../DashBoard/DashBoardElement/MarketPanel/MarketPanelItem';
 import { useAppDispatch } from '../../store';
 import { useEffect, useState } from 'react';
@@ -11,6 +11,8 @@ import { getCoinApi } from '../../services/coinApI';
 import { storeLayoutOverview } from '../../store/storeOverview';
 import { IconArrowRight, IconDownload, IconHelp, IconSpeaker } from '../../assets/Icon/icon';
 import QR from '../../component/OverViewItem/QR';
+import { useNavigate } from 'react-router-dom';
+import { AuthData } from '../../layout/context/layoutContext';
 const cx = classNames.bind(styles);
 
 export const countDown = (
@@ -40,6 +42,7 @@ interface IDevice {
 
 const MarketOverview = () => {
     const { t } = useTranslation(['Overview']);
+    const { setCoinItem } = AuthData();
     const dispatch = useAppDispatch();
     const { contentInfo, contentCoinPrice, contentDevices, contentDownLoad } = storeLayoutOverview;
     const [changeDevice, setChangeDevice] = useState<IDevice>(contentDevices.lite);
@@ -47,6 +50,7 @@ const MarketOverview = () => {
     const [hour, setHour] = useState<number>(0);
     const [minute, setMinute] = useState<number>(0);
     const [seconds, setSeconds] = useState<number>(0);
+    const navigate = useNavigate();
 
     const date = new Date(contentCoinPrice.time).getTime();
 
@@ -56,8 +60,14 @@ const MarketOverview = () => {
         setChangeDevice(device);
     };
 
+    const setShowCrypto = (data: ICoin) => {
+        setCoinItem && setCoinItem(data);
+        console.log(data);
+        navigate('/crypto');
+    };
+
     useEffect(() => {
-        // dispatch(getCoinApi());
+        dispatch(getCoinApi());
     }, []);
 
     return (
@@ -107,7 +117,10 @@ const MarketOverview = () => {
                     </div>
                     <div className={cx('content-coinprice')}>
                         <div className={cx('wrapper-panel')}>
-                            <MarketPanelItem dataCoinMarket={storePriceCoinOverview}></MarketPanelItem>
+                            <MarketPanelItem
+                                setShowCrypto={setShowCrypto}
+                                dataCoinMarket={storePriceCoinOverview}
+                            ></MarketPanelItem>
                         </div>
 
                         <div className={cx('content-para')}>

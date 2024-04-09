@@ -13,6 +13,10 @@ export const numberWithCommas = (number: number) => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
 
+export const stringtoNumber = (string: string) => {
+    return string.replace(',', '');
+};
+
 const MarketPanel = () => {
     const name = marketPanelShowEnum;
     const [showContent, setShowContent] = useState<string>(name.HOLDING);

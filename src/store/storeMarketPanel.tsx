@@ -517,6 +517,7 @@ export const storePriceCoinOverview = [
 
         price: {
             price: 'flexible / fixed',
+            sub: '0.00%',
         },
         growth: '10.96%',
     },
@@ -529,6 +530,7 @@ export const storePriceCoinOverview = [
 
         price: {
             price: 'flexible',
+            sub: '0.00%',
         },
         growth: '0.00%',
     },
@@ -541,6 +543,7 @@ export const storePriceCoinOverview = [
 
         price: {
             price: 'flexible',
+            sub: '0.00%',
         },
         growth: '0.00%',
     },

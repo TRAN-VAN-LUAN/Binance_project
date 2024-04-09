@@ -43,20 +43,6 @@
             &:hover {
                 background-color: var(--bg-focus);
             }
-
-            &:focus {
-                color: var(--text-color);
-                background-color: var(--bg-focus);
-            }
-
-            &:focus .icon-chervo {
-                transform: rotate(45deg);
-            }
-
-            .icon-chervo {
-                display: flex;
-                align-items: center;
-            }
         }
 
         .focus-item {
@@ -71,6 +57,15 @@
 
             &:hover {
                 color: var(--color-textThird);
+            }
+
+            &:focus .icon-chervo {
+                transform: rotate(45deg);
+            }
+
+            .icon-chervo {
+                display: flex;
+                align-items: center;
             }
         }
 

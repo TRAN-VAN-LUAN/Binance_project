@@ -1,34 +1,3 @@
-{
-    "dashboard": "Tổng Quan",
-    "assets": "Tài sản",
-    "account": "Tài khoản",
-    "setting": "Cài đặt",
-    "userId": "ID Người dùng",
-    "viplevel": "Mức độ VIP",
-    "usertype": "Loại Tài Khoản",
-    "following": "Đang theo dõi",
-    "follower": "Người theo dõi",
-    "getstarted": "Bắt đầu",
-    "pending": "Đang duyệt",
-    "verify": "Xác minh",
-    "indentifycation": "Xác minh",
-    "security": "Bảo mật",
-    "cashin": "Nạp",
-    "withdraw": "Rút",
-    "deposit": "Tiền mặt",
-    "overview": "Tổng quan",
-    "spot": "Giao dịch",
-    "margin": "Margin",
-    "estimated_balance": "Số dư ước tính",
-    "markets": "Thị trường",
-    "discover": "Khám phá",
-    "holding": "Đang nắm giữ",
-    "hot": " Phổ biến",
-    "new_list": "Niêm yết mới",
-    "favorite": "Yêu thích",
-    "top_ganier": "Top tăng giá",
-    "volumn": "Khối lượng 24h",
-    "coin_price": "Gía coin",
-    "growth": "Tăng trưởng (3 năm qua)",
-    "amount": "Số lượng"
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:414865fdee684b579ceda88b24474359109223e1765ad54cde2d0aeaea4a713d
+size 1088

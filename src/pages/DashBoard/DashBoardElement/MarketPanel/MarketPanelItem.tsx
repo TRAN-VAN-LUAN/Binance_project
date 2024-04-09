@@ -15,18 +15,40 @@ interface PropsMarketsPanel {
     data?: IStoreMarket[];
     dataCoinMarket?: ICoin[];
     showContent?: string;
+    setShowCrypto?: (data: ICoin) => void;
 }
 
 const MarketPanelItem = (props: PropsMarketsPanel) => {
-    let { data, dataCoinMarket, showContent } = props;
+    let { data, dataCoinMarket, showContent, setShowCrypto } = props;
     let dataCoin: ICoins[] = useSelector((state: RootState) => state.coin.listCoin);
     const dispatch = useAppDispatch();
     const [dataCoinApi, setDataCoinApi] = useState<ICoins[]>(dataCoin);
 
+    const setShowItem = (data: ICoin) => {
+        dataCoin.map((coin) => {
+            if (coin.symbol === data.nameCoin?.name) {
+                data.price?.sub
+                    ? (data.price.sub = numberWithCommas(parseFloat(coin.askPrice ? coin.askPrice : '') * 23255))
+                    : '';
+                data.price?.price
+                    ? (data.price.price = numberWithCommas(parseFloat(coin.askPrice ? coin.askPrice : '')))
+                    : '';
+                data.growth ? (data.growth = coin.priceChangePercent) : '';
+            }
+        });
+
+        if (setShowCrypto) {
+            const crypto = JSON.stringify(data);
+            console.log(crypto);
+            localStorage.setItem('crypto-detail', crypto);
+            setShowCrypto(data);
+        }
+    };
+
     useEffect(() => {
         const callCoinApi = setInterval(() => {
-            // dispatch(getCoinApi());
-        }, 120000);
+            dispatch(getCoinApi());
+        }, 6000000);
         return () => clearInterval(callCoinApi);
     }, []);
 
@@ -104,7 +126,11 @@ const MarketPanelItem = (props: PropsMarketsPanel) => {
                 <div className={cx('wrapper-coin')}>
                     {!!dataCoinMarket &&
                         dataCoinMarket.map((coinItem, index) => (
-                            <div key={index} className={cx('wrapper-coin-item', 'wrapper-panel')}>
+                            <div
+                                key={index}
+                                onClick={() => setShowItem(coinItem)}
+                                className={cx('wrapper-coin-item', 'wrapper-panel')}
+                            >
                                 {dataCoinApi.map((priceCoin, index) =>
                                     priceCoin.symbol === coinItem.nameCoin?.name ? (
                                         <>
@@ -150,7 +176,7 @@ const MarketPanelItem = (props: PropsMarketsPanel) => {
                                             <div className={cx('action')}>{coinItem.action}</div>
                                         </>
                                     ) : (
-                                        <>{console.log(priceCoin)}</>
+                                        <></>
                                     ),
                                 )}
                             </div>

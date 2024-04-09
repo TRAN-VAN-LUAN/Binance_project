@@ -1,6 +1,7 @@
 @import '../../styles/styles/mixin.scss';
 .main-container {
     display: flex;
+    justify-content: center;
     width: 100%;
 
     .container {
@@ -137,7 +138,7 @@
     }
 }
 
-@media (min-width: 1200px) {
+@media (max-width: 1200px) {
     .container {
         max-width: calc(936px + var(--dynamic-dashboard-left));
     }

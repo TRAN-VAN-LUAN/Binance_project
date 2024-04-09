@@ -1,31 +1,3 @@
-{
-    "dashboard": "DashBoard",
-    "assets": "Assets",
-    "account": "Account",
-    "setting": "Setting",
-    "userId": "User ID",
-    "viplevel": "VIP Level",
-    "usertype": "User Type",
-    "following": "Following",
-    "follower": "Follower",
-    "getstarted": "Get Started",
-    "pending": "Pending",
-    "verify": "Verify",
-    "indentifycation": "Indentifycation",
-    "estimated_balance": "Estimated Balance",
-    "cashin": "Cash In",
-    "withdraw": "With Draw",
-    "deposit": "Deposit",
-    "overview": "Overview",
-    "spot": "Spot",
-    "margin": "Margin",
-    "holding": "Holding",
-    "hot": "Hot",
-    "new_list": "New Listing",
-    "favorite": "Favorite",
-    "top_ganier": "Top Ganiers",
-    "volume": "24h Volume",
-    "earn": "Earn",
-    "markets": "Markets",
-    "discover": "Discover"
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f4a6680739100840aa64eae015d9f6de7d3ce0bdf597a5335ad6ae498447a825
+size 842

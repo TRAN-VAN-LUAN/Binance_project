@@ -1,0 +1,17 @@
+.main-container {
+    display: flex;
+    align-items: center;
+    grid-gap: 10px;
+    gap: 10px;
+    color: var(--color-textThird);
+
+    .home,
+    .item {
+        font-size: 1.4rem;
+        cursor: pointer;
+    }
+
+    .coin {
+        color: var(--text-color);
+    }
+}

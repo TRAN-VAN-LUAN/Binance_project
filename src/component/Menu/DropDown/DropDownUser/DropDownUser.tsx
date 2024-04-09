@@ -9,18 +9,24 @@ import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../../../store';
 import { IconLogout } from '../../../../assets/Icon/icon';
 import { logout } from '../../../../slice/useSlice';
-import { useEffect } from 'react';
+import { AuthData } from '../../../../layout/context/layoutContext';
 
 export const cx = classNames.bind(styles);
 const DropDownUser = () => {
     const navigate = useNavigate();
+    const { setFocusDashBoard } = AuthData();
     const dispatch = useAppDispatch();
     const { t } = useTranslation(['DashBoard']);
     const currentUser = useSelector((state: RootState) => state.user.currentUser);
 
-    const handleNavigate = (path?: string) => {
-        if (path) {
+    const handleNavigate = (path?: string, title?: string) => {
+        if (title && path) {
+            console.log(title);
             navigate(path);
+            if (setFocusDashBoard) {
+                console.log(title);
+                setFocusDashBoard(title);
+            }
         }
     };
 
@@ -28,10 +34,6 @@ const DropDownUser = () => {
         dispatch(logout());
         navigate('/');
     };
-
-    useEffect(() => {
-        console.log(currentUser);
-    }, []);
 
     return (
         <div className={cx('dropdown-user')}>
@@ -50,7 +52,12 @@ const DropDownUser = () => {
                         key={index}
                         leftIcon={dashBoardItem.icon}
                         twoIcon
-                        onClick={() => handleNavigate(dashBoardItem.path)}
+                        onClick={() =>
+                            handleNavigate(
+                                dashBoardItem.path || (dashBoardItem.children && dashBoardItem.children[0].path),
+                                (dashBoardItem.children && dashBoardItem.children[0].title) || dashBoardItem.title,
+                            )
+                        }
                     >
                         {t(dashBoardItem.title)}
                     </Button>
