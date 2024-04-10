@@ -30,7 +30,7 @@ export interface ICoinChart {
     price?: string;
     qty?: string;
     quote_qty?: string;
-    time?: string;
+    time: string;
     is_buyer_maker?: boolean;
 }
 

@@ -7,7 +7,7 @@ import { ICoin, storePriceCoinOverview } from '../../store/storeMarketPanel';
 import MarketPanelItem from '../DashBoard/DashBoardElement/MarketPanel/MarketPanelItem';
 import { useAppDispatch } from '../../store';
 import { useEffect, useState } from 'react';
-import { getCoinApi } from '../../services/coinApI';
+import { getCoinApi, getCoinPriceByName } from '../../services/coinApI';
 import { storeLayoutOverview } from '../../store/storeOverview';
 import { IconArrowRight, IconDownload, IconHelp, IconSpeaker } from '../../assets/Icon/icon';
 import QR from '../../component/OverViewItem/QR';
@@ -68,6 +68,7 @@ const MarketOverview = () => {
 
     useEffect(() => {
         dispatch(getCoinApi());
+        dispatch(getCoinPriceByName());
     }, []);
 
     return (
