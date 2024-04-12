@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { numberWithCommas } from './MarketPanel';
 import { IconGrowth } from '../../../../assets/Icon/icon';
-import { getCoinApi } from '../../../../services/coinApI';
+import { getCoinApi, getCoinPriceByName } from '../../../../services/coinApI';
 
 const cx = classNames.bind(styles);
 
@@ -34,6 +34,8 @@ const MarketPanelItem = (props: PropsMarketsPanel) => {
                     ? (data.price.price = numberWithCommas(parseFloat(coin.askPrice ? coin.askPrice : '')))
                     : '';
                 data.growth ? (data.growth = coin.priceChangePercent) : '';
+
+                dispatch(getCoinPriceByName());
             }
         });
 

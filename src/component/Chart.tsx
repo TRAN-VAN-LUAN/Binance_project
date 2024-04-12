@@ -1,118 +1,85 @@
-import Chart from 'react-apexcharts';
-import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '../store';
+import ReactApexChart from 'react-apexcharts';
+import { ApexOptions } from 'apexcharts';
 import { ICoinChart } from '../slice/coinSlice';
 import { useEffect, useState } from 'react';
-import { getCoinPriceByName } from '../services/coinApI';
-import axios from 'axios';
+import { RootState } from '../store';
+import { useSelector } from 'react-redux';
+import dayjs from 'dayjs';
+// import { getCoinPriceByName } from '../services/coinApI';
 
 export default function ChartComp({}) {
-    const dispatch = useAppDispatch();
+    const data: ICoinChart[] = useSelector((state: RootState) => state.coin.listDetailACoin);
     const [coins, setCoins] = useState<ICoinChart[]>([]);
-    const getApi = async () => {
-        const response = await axios.get(`http://localhost:3000/BTCUSDT`);
-        setCoins(response.data);
-    };
 
-    let y =
-        coins.length > 0 &&
-        coins.map((item) => {
-            return item.price;
-        });
+    // useEffect(() => {
+    //     dispatch(getCoinPriceByName());
+    // }, []);
 
     useEffect(() => {
-        getApi();
-    }, []);
+        setCoins(data);
+    }, [data]);
 
-    let series = [
+    let dataset =
+        coins.length > 0 &&
+        coins.map((item) => {
+            return { x: new Date(parseInt(item.time)), y: item.price };
+        });
+
+    let series: ApexAxisChartSeries = [
         {
-            data: [
-                {
-                    x: new Date(1538839800000),
-                    y: y,
-                },
-            ],
+            name: 'candle',
+            data: dataset,
         },
     ];
 
-    let options = {
+    let options: ApexOptions = {
         chart: {
+            height: 350,
             type: 'candlestick',
         },
         title: {
-            // text: ` Stock Price`,
             align: 'left',
-            style: {
-                color: '#3B82F6',
-                fontFamily: 'Courier',
-                fontSize: '26px',
-            },
+        },
+        annotations: {
+            xaxis: [
+                {
+                    x: 'Oct 06 14:00',
+                    borderColor: '#00E396',
+                    label: {
+                        borderColor: '#00E396',
+                        style: {
+                            fontSize: '12px',
+                            color: '#fff',
+                            background: '#00E396',
+                        },
+                        orientation: 'horizontal',
+                        offsetY: 7,
+                        text: 'Annotation Test',
+                    },
+                },
+            ],
+        },
+        tooltip: {
+            enabled: true,
         },
         xaxis: {
-            type: 'date',
+            type: 'category',
+            labels: {
+                formatter: function (val) {
+                    return dayjs(val).format('HH:mm');
+                },
+            },
         },
         yaxis: {
             tooltip: {
                 enabled: true,
-            },
-            labels: {
-                formatter: function (val) {
-                    return '$' + val.toFixed(2);
-                },
             },
         },
     };
 
     return (
         <div className="p-2 rounded-md border-2 border-gray-500">
-            <Chart type="candlestick" width={'100%'} height="400" series={series} options={options} />
+            <ReactApexChart type="candlestick" width={'100%'} height="350" series={series} options={options} />
         </div>
     );
 }
-
-// import { useEffect } from 'react';
-// import anychart from 'anychart';
-// import 'anychart/dist/css/anychart-ui.min.css';
-// import { ICoinChart } from '../slice/coinSlice';
-
-// const CandlestickChart = () => {
-//     useEffect(() => {
-//         anychart.onDocumentReady(function () {
-//             // load data
-//             anychart.data.loadCsvFile('/src/db/data/BTCUSDT.csv', function (data) {
-//                 // create a data table with the loaded data
-//                 var dataTable = anychart.data.table();
-//                 dataTable.addData(data);
-
-//                 console.log(data), console.log(dataTable);
-//                 // map the loaded data for the candlestick series
-//                 var mapping = dataTable.mapAs({
-//                     open: 1,
-//                     high: 2,
-//                     low: 3,
-//                     close: 4,
-//                 });
-//                 // create a stock chart
-//                 var chart = anychart.stock();
-//                 // create the chart plot
-//                 var plot = chart.plot(0);
-//                 // set the grid settings
-//                 plot.yGrid(true).xGrid(true).yMinorGrid(true).xMinorGrid(true);
-//                 // create the candlestick series
-//                 var series = plot.candlestick(mapping);
-//                 series.name('TSMC');
-//                 series.legendItem().iconType('rising-falling');
-//                 // set the title of the chart
-//                 chart.title('TSMC Stock Chart');
-//                 // set the container id for the chart
-//                 chart.container('container');
-//                 // initiate the chart drawing
-//                 chart.draw();
-//             });
-//         });
-//     }, []);
-
-//     return <div id="container" style={{ width: '100%', height: '500px' }}></div>;
-// };
-
-// export default CandlestickChart;

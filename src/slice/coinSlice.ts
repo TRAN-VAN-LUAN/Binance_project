@@ -26,10 +26,10 @@ export interface ICoins {
 }
 
 export interface ICoinChart {
-    id?: string;
-    price?: string;
-    qty?: string;
-    quote_qty?: string;
+    id?: number;
+    price?: number[];
+    qty?: number;
+    quote_qty?: number;
     time: string;
     is_buyer_maker?: boolean;
 }

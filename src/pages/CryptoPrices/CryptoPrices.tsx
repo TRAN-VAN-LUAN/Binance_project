@@ -1,6 +1,5 @@
 import classNames from 'classnames/bind';
 import styles from './CryptoPrices.module.scss';
-import { Chart } from 'primereact/chart';
 import BreadCrumb, { IItemBreadCrumb } from '../../layout/AppBreadCrum/BreadCrumb';
 import { Button } from '../../component/Button/Button';
 import { IconShare } from '../../assets/Icon/icon';
@@ -11,10 +10,8 @@ import { useEffect, useRef, useState } from 'react';
 import { numberWithCommas, stringtoNumber } from '../DashBoard/DashBoardElement/MarketPanel/MarketPanel';
 import { getCurrentCoinFromLocalStorage } from '../../utils/auth';
 import { ICoin } from '../../store/storeMarketPanel';
-import { RootState, useAppDispatch } from '../../store';
+import { useAppDispatch } from '../../store';
 import { getCoinPriceByName } from '../../services/coinApI';
-import { useSelector } from 'react-redux';
-import { ICoinChart } from '../../slice/coinSlice';
 import ChartComp from '../../component/Chart';
 
 const cx = classNames.bind(styles);
@@ -26,13 +23,8 @@ const CryptoPrices = () => {
     const { theme } = AuthData();
     const coinItem: ICoin = getCurrentCoinFromLocalStorage();
     const [amountCoin, setAmountPrice] = useState<number>(1);
-    const coinDetail: ICoinChart[] = useSelector((state: RootState) => state.coin.listDetailACoin);
     const dispatch = useAppDispatch();
     const inputRef = useRef<HTMLInputElement>(null);
-    console.log(coinDetail);
-
-    const [chartData, setChartData] = useState({});
-    const [chartOptions, setChartOptions] = useState({});
 
     const handleChangeAmountCoin = () => {
         const inputValue = inputRef.current?.value;
@@ -46,59 +38,9 @@ const CryptoPrices = () => {
         }
     };
 
-    let dataset = coinDetail.map((item) => item.price);
-    console.log(dataset);
-
     useEffect(() => {
         dispatch(getCoinPriceByName());
     }, []);
-
-    useEffect(() => {
-        const data = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [
-                {
-                    label: 'First Dataset',
-                    data: dataset,
-                    fill: false,
-                    borderColor: '#555555',
-                    tension: 0.4,
-                },
-            ],
-        };
-        const options = {
-            maintainAspectRatio: false,
-            aspectRatio: 0.6,
-            plugins: {
-                legend: {
-                    labels: {
-                        color: '#000000',
-                    },
-                },
-            },
-            scales: {
-                x: {
-                    ticks: {
-                        color: 'red',
-                    },
-                    grid: {
-                        color: 'yellow',
-                    },
-                },
-                y: {
-                    ticks: {
-                        color: 'orange',
-                    },
-                    grid: {
-                        color: 'white',
-                    },
-                },
-            },
-        };
-
-        setChartData(data);
-        setChartOptions(options);
-    }, [inputRef]);
 
     return (
         <div className={cx('main-container', theme)}>
@@ -126,7 +68,6 @@ const CryptoPrices = () => {
                         </div>
                         <div className={cx('card')}>
                             <ChartComp />
-                            {/* <Chart type="line" data={chartData} options={chartOptions} /> */}
                         </div>
                     </div>
 
