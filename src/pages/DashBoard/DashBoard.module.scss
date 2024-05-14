@@ -1,0 +1,174 @@
+@import '../../styles/styles/mixin.scss';
+.main-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .container {
+        width: 100%;
+        z-index: 0;
+        padding-right: 24px;
+        padding-left: var(--dynamic-dashboard-left);
+    }
+}
+
+.main-container .dashboard-header {
+    --height-dashboard-header: 104px;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    width: 100%;
+    height: var(--height-dashboard-header);
+    padding-top: 24px;
+    margin-bottom: 16px;
+    color: var(--text-color);
+
+    .info {
+        position: relative;
+        display: flex;
+        height: 100%;
+        margin-right: 40px;
+        .avata {
+            position: relative;
+            width: 6.4rem;
+            height: 6.4rem;
+            .img-avata {
+                width: 100%;
+                height: 100%;
+                background-image: url('../../assets/img/default-avatar.png');
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+            &:hover .icon-pen {
+                display: flex;
+            }
+
+            &:hover .img-avata {
+                opacity: 0.3;
+            }
+
+            .icon-pen {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: none;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-left: 24px;
+            height: 100%;
+
+            .username {
+                min-height: 24px;
+                margin-bottom: 12px;
+            }
+
+            .info-action {
+                display: flex;
+                justify-content: start;
+                height: 28px;
+                width: 100%;
+                float: left;
+                color: var(--color-iconNormal);
+
+                .bg-icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 24px;
+                    width: 24px;
+                    background-color: var(--color-line);
+                    border-radius: 50%;
+
+                    &:hover {
+                        @include hoverPrimary();
+                    }
+
+                    + .bg-icon {
+                        margin-left: 6px;
+                    }
+                }
+            }
+        }
+    }
+
+    .info-details {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+        position: relative;
+        padding-left: 40px;
+
+        &::before {
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            height: 64px;
+            background-color: var(--color-line);
+            margin-right: 40px;
+        }
+    }
+}
+
+.main-container .dashboard-container {
+    .subtitle {
+        font-size: 2rem;
+        padding-bottom: 24px;
+        font-weight: 500;
+        line-height: 2.8rem;
+        color: var(--text-color);
+    }
+
+    .voucher {
+        display: flex;
+        align-items: center;
+        height: 290px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        max-width: calc(936px + var(--dynamic-dashboard-left));
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (max-width: 992px) {
+    .main-container {
+        .dashboard-header {
+            display: flex;
+        }
+
+        .container {
+            padding-left: 24px;
+        }
+    }
+
+    .main-container .voucher {
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 992px) {
+    .main-container .info-details {
+        display: none !important;
+    }
+
+    .main-container .voucher {
+        height: auto !important;
+    }
+}

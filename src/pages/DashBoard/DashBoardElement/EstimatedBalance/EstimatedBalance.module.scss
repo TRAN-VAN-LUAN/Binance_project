@@ -1,0 +1,61 @@
+@import '../../../../styles/styles/mixin.scss';
+
+.estimate-container {
+    color: var(--text-color);
+    @include DefaultLayoutDashBoardElement();
+
+    .estimate-main {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .estimate-title {
+            display: flex;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: 500;
+
+            svg {
+                margin-left: 4px;
+                color: var(--gray);
+            }
+        }
+
+        .estimate-btn {
+            display: flex;
+
+            button {
+                + button {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+
+    .estimate-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: left;
+
+        .estimate-money {
+            font-size: 3.2rem;
+            font-weight: 500;
+            line-height: 4rem;
+
+            span {
+                font-size: 1.4rem;
+                font-weight: 400;
+                margin-left: 6px;
+            }
+        }
+
+        .estimate-pnl {
+            span {
+                margin-left: 6px;
+                color: var(--color-textThird);
+            }
+        }
+    }
+}

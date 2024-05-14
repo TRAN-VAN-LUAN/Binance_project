@@ -1,0 +1,123 @@
+@import 'normalize.css';
+
+:root {
+    // Color
+    --primary: #fcd535;
+    --white: #ffffff;
+    --black: #000000;
+
+    // --black: #000000;
+    --gray: #474d57;
+    --color-primaryHover: #f0b90b;
+    --color-textThird: #848e9c;
+    --color-textDisabled: #5e6673;
+    --color-active: rgba(71, 77, 87, 1);
+    --color-price: #0ecb81;
+
+    --color-iconNormal: #848e9c;
+    --color-disabled: #5e6673;
+
+    // Background color
+    // --bg-primary: #181a20;
+
+    --color-bg3: #2b3139;
+    --bg-disabled: #2b3139;
+
+    // Text color
+    // --text-color: #eaecef;
+
+    // Header variable
+    --height-header: 64px;
+
+    // padding
+    --dynamic-dashboard-left: calc(19.23077vw - 196.92308px);
+
+    // Croll
+    --scroll-color: #5e6673;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'BinanceFont', sans-serif;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background-color: var(--bg-primary);
+    line-height: 2.4rem;
+    text-rendering: optimizeSpeed;
+}
+
+.light {
+    --text-color: #1e2329;
+    --bg-primary: #ffffff;
+    --bg-focus: #f5f5f5;
+    --bg-dropdown: #fafafa;
+    --color-btn: #f5f5f5;
+    --bg-hover-market: #fafafa;
+    --color-hover-device: #f1f2f4;
+    --color-line: #eaecef;
+}
+
+.dark {
+    --text-color: #eaecef;
+    --bg-primary: #181a20;
+    --bg-focus: #2b3139;
+    --bg-dropdown: #1e2329;
+    --color-btn: #2b3139;
+    --bg-hover-market: #0b0e11;
+    --color-hover-device: #252a32;
+    --color-line: #2b3139;
+}
+
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+}
+
+a[href] {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+// .w-1\/2 {
+//     width: 50% !important;
+// }
+
+// .flex {
+//     display: flex;
+// }
+
+// font family
+@font-face {
+    font-family: 'BinanceFont';
+    src: url(../assets/fonts/BinancePlex-SemiBold.woff2);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'BinanceFont';
+    src: url(../assets/fonts/BinancePlex-Medium.woff2);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'BinanceFont';
+    src: url(../assets/fonts/BinancePlex-Regular.woff2);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'BinanceFont';
+    src: url(/assets/fonts/BinancePlex-Light.woff2);
+    font-weight: 300;
+}

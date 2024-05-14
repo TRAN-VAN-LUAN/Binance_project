@@ -1,4 +1,6 @@
 export enum inputTypes {
     TEXT = 'text',
-    NUMBER = 'number'
+    PASSWORD = 'password',
+    CHECKBOX = ' checkbox',
+    NUMBER = 'number',
 }

@@ -1,0 +1,125 @@
+@import '../../styles/styles/mixin.scss';
+
+$radii-s: 6px;
+$radii-l: 10px;
+$height-medium: 48px;
+$height-large: 64px;
+$height-small: 32px;
+
+.wrapper {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 0 14px;
+    border-radius: $radii-l;
+    height: $height-medium;
+
+    .title {
+        flex: 1;
+    }
+
+    .icon-left,
+    .icon-right {
+        display: flex;
+    }
+}
+
+.primary {
+    background-color: var(--primary);
+    color: var(--black);
+
+    &:hover {
+        @include MouseHoverPrimary(#fcd535);
+    }
+}
+
+.active {
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 0 12px;
+    height: 32px;
+    background-color: var(--color-active);
+    color: white;
+    border-radius: 6px;
+    grid-gap: 11px;
+    gap: 11px;
+
+    &:hover,
+    &:focus {
+        opacity: 0.8;
+    }
+}
+
+.small {
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    padding: 4px 8px;
+    border-radius: $radii-s;
+    height: $height-small;
+    min-width: 88px;
+
+    .icon-left {
+        width: 16px;
+        height: 16px;
+        margin-right: 2px;
+    }
+}
+
+.disabled {
+    cursor: not-allowed;
+    background-color: var(--bg-disabled);
+    color: var(--color-disabled);
+
+    &:hover {
+        background-color: var(--bg-disabled);
+        color: var(--color-disabled);
+    }
+}
+
+.large {
+    padding-left: 12px;
+    padding-right: 12px;
+    height: $height-large;
+}
+
+.secondary {
+    border-radius: 48px;
+}
+
+.outline {
+    background-color: transparent;
+    border: 1px solid var(--black);
+    color: var(--text-color);
+}
+
+.twoIcon {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    color: var(--color-textThird);
+    background-color: transparent;
+
+    .title {
+        flex: 1;
+        display: flex;
+    }
+
+    .icon-left {
+        margin-right: 10px;
+    }
+
+    &:hover,
+    &:focus {
+        color: var(--text-color);
+        background-color: var(--bg-focus);
+    }
+
+    &:focus .icon-right {
+        transform: rotate(180deg);
+        animation: all 0.5s linear;
+    }
+}
