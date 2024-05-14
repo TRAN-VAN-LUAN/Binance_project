@@ -13,7 +13,7 @@ import Layout from '../../layout/Layout';
 // import CryptoPrices from '../../pages/CryptoPrices/CryptoPrices.tsx';
 import React from 'react';
 
-const Login = React.lazy(() => import('../../pages/Login/Login.tsx'));
+const Login = React.lazy(() => import('../../pages/Login/login.tsx'));
 const ContentDefaultDashBoard = React.lazy(() => import('../../pages/DashBoard/ContentDefaultDashBoard.tsx'));
 const DashBoard = React.lazy(() => import('../../pages/DashBoard/DashBoard.tsx'));
 const MarketOverview = React.lazy(() => import('../../pages/MarketOverview/MarketOverview.tsx'));
