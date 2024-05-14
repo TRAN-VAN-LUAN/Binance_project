@@ -4,7 +4,7 @@ import styles from './MarketPanel.module.scss';
 import { ICoins } from '../../../../slice/coinSlice';
 import { RootState, useAppDispatch } from '../../../../store';
 import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { numberWithCommas } from './MarketPanel';
 import { IconGrowth } from '../../../../assets/Icon/icon';
 import { getCoinApi, getCoinPriceByName } from '../../../../services/coinApI';
@@ -23,6 +23,19 @@ const MarketPanelItem = (props: PropsMarketsPanel) => {
     let dataCoin: ICoins[] = useSelector((state: RootState) => state.coin.listCoin);
     const dispatch = useAppDispatch();
     const [dataCoinApi, setDataCoinApi] = useState<ICoins[]>(dataCoin);
+
+    console.log(1);
+
+    useEffect(() => {
+        const callCoinApi = setInterval(() => {
+            dispatch(getCoinApi());
+        }, 6000000);
+        return () => clearInterval(callCoinApi);
+    }, []);
+
+    useEffect(() => {
+        setDataCoinApi(dataCoin);
+    }, [dataCoin]);
 
     const setShowItem = (data: ICoin) => {
         dataCoin.map((coin) => {
@@ -46,17 +59,6 @@ const MarketPanelItem = (props: PropsMarketsPanel) => {
             setShowCrypto(data);
         }
     };
-
-    useEffect(() => {
-        const callCoinApi = setInterval(() => {
-            dispatch(getCoinApi());
-        }, 6000000);
-        return () => clearInterval(callCoinApi);
-    }, []);
-
-    useEffect(() => {
-        setDataCoinApi(dataCoin);
-    }, [dataCoin]);
 
     return (
         <>
@@ -188,4 +190,4 @@ const MarketPanelItem = (props: PropsMarketsPanel) => {
         </>
     );
 };
-export default MarketPanelItem;
+export default React.memo(MarketPanelItem);

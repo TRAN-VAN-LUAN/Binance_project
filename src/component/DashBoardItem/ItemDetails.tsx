@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react';
 import classNames from 'classnames/bind';
 import styles from './DashBoardItem.module.scss';
 
@@ -23,4 +23,4 @@ const ItemDetails: FC<IItemDetails> = (props) => {
     );
 };
 
-export default ItemDetails;
+export default React.memo(ItemDetails);

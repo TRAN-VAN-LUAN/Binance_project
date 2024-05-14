@@ -49,7 +49,6 @@ const LoginForm = () => {
         const resultFindUser: IUser[] = listUser.filter(
             (user) => user.email === refEmail.current?.value && user.password === refPassword.current?.value,
         );
-        console.log(resultFindUser);
         if (setAuthenticated) {
             setAuthenticated();
             // save to localstorage

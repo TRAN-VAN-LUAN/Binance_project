@@ -1,29 +1,25 @@
 import ReactApexChart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import { ICoinChart } from '../slice/coinSlice';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { RootState } from '../store';
 import { useSelector } from 'react-redux';
 import dayjs from 'dayjs';
 // import { getCoinPriceByName } from '../services/coinApI';
 
-export default function ChartComp({}) {
+export default function ChartComp() {
     const data: ICoinChart[] = useSelector((state: RootState) => state.coin.listDetailACoin);
     const [coins, setCoins] = useState<ICoinChart[]>([]);
-
-    // useEffect(() => {
-    //     dispatch(getCoinPriceByName());
-    // }, []);
 
     useEffect(() => {
         setCoins(data);
     }, [data]);
 
-    let dataset =
-        coins.length > 0 &&
-        coins.map((item) => {
-            return { x: new Date(parseInt(item.time)), y: item.price };
+    let dataset: { x: any; y: any }[] = useMemo(() => {
+        return coins.map((item) => {
+            return { x: new Date(parseInt(item.time)).getTime(), y: item.price };
         });
+    }, [coins]);
 
     let series: ApexAxisChartSeries = [
         {
@@ -60,7 +56,7 @@ export default function ChartComp({}) {
             ],
         },
         tooltip: {
-            enabled: true,
+            enabled: false,
         },
         xaxis: {
             type: 'category',

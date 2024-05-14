@@ -1,10 +1,10 @@
 import classNames from 'classnames/bind';
 import styles from './DashBoardItem.module.scss';
-import { FC, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Button } from '../Button/Button';
 import { useTranslation } from 'react-i18next';
 import { IClock, IconPrice } from '../../assets/Icon/icon';
-import { countDown } from '../../pages/MarketOverview/MarketOverview';
+import { countDown } from '../../models/dashboard/countDown';
 const cx = classNames.bind(styles);
 
 interface IDashBoardVoucher {
@@ -111,4 +111,4 @@ const DashBoardVoucher: FC<IDashBoardVoucher> = (props) => {
     );
 };
 
-export default DashBoardVoucher;
+export default React.memo(DashBoardVoucher);

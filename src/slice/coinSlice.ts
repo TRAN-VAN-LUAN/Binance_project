@@ -27,7 +27,7 @@ export interface ICoins {
 
 export interface ICoinChart {
     id?: number;
-    price?: number[];
+    price: number[];
     qty?: number;
     quote_qty?: number;
     time: string;

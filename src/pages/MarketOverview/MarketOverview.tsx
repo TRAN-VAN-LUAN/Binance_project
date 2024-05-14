@@ -6,34 +6,15 @@ import { Button } from '../../component/Button/Button';
 import { ICoin, storePriceCoinOverview } from '../../store/storeMarketPanel';
 import MarketPanelItem from '../DashBoard/DashBoardElement/MarketPanel/MarketPanelItem';
 import { useAppDispatch } from '../../store';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { getCoinApi, getCoinPriceByName } from '../../services/coinApI';
 import { storeLayoutOverview } from '../../store/storeOverview';
 import { IconArrowRight, IconDownload, IconHelp, IconSpeaker } from '../../assets/Icon/icon';
 import QR from '../../component/OverViewItem/QR';
 import { useNavigate } from 'react-router-dom';
 import { AuthData } from '../../layout/context/layoutContext';
+import { countDown } from '../../models/dashboard/countDown';
 const cx = classNames.bind(styles);
-
-export const countDown = (
-    date: number,
-    setDay: (data: number) => void,
-    setHour: (data: number) => void,
-    setMinute: (data: number) => void,
-    setSeconds?: (data: number) => void,
-) => {
-    const countDownInterval = setInterval(() => {
-        let now = new Date().getTime();
-        let distance = date - now;
-        setDay(Math.floor(distance / (1000 * 60 * 60 * 24)));
-        setHour(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-        setMinute(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
-        setSeconds && setSeconds(Math.floor((distance % (1000 * 60)) / 1000));
-        if (distance < 0) {
-            clearInterval(countDownInterval);
-        }
-    }, 1000);
-};
 
 interface IDevice {
     title: string;
@@ -60,11 +41,13 @@ const MarketOverview = () => {
         setChangeDevice(device);
     };
 
-    const setShowCrypto = (data: ICoin) => {
-        setCoinItem && setCoinItem(data);
-        console.log(data);
-        navigate('/crypto');
-    };
+    const setShowCrypto = useCallback(
+        (data: ICoin) => {
+            setCoinItem && setCoinItem(data);
+            navigate('/crypto');
+        },
+        [storePriceCoinOverview],
+    );
 
     useEffect(() => {
         dispatch(getCoinApi());
