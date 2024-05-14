@@ -11,7 +11,7 @@ import Input from '../../component/Input/Input';
 import { IFormLogin } from '../../models/ILogin';
 // import loginSchema from '../../schema/LoginSchema';
 import { ShowFormErrorMessage } from '../../component/Input/ShowFormErrorMessage';
-import { cx } from './Login';
+import { cx } from './login';
 import { IUser } from '../../models/IUser';
 import { AuthData } from '../../layout/context/layoutContext';
 import { useSelector } from 'react-redux';
