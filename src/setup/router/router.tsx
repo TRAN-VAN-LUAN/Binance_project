@@ -10,6 +10,7 @@ import DashBoardOverview from '../../pages/DashBoard/wallet/DashBoardOverview.ts
 import DashBoardAccount from '../../pages/DashBoard/wallet/DashBoardAccount.tsx';
 import Indentifycation from '../../pages/DashBoard/Spot/Indentifycation.tsx';
 import Sercurity from '../../pages/DashBoard/Spot/Sercurity.tsx';
+import CryptoPrices from '../../pages/CryptoPrices/CryptoPrices.tsx';
 
 const router = createBrowserRouter([
     {
@@ -60,6 +61,11 @@ const router = createBrowserRouter([
                         path: 'overview',
                         loader: protectedRouter,
                         element: <MarketOverview />,
+                    },
+                    {
+                        path: 'crypto',
+                        loader: protectedRouter,
+                        element: <CryptoPrices />,
                     },
                 ],
             },

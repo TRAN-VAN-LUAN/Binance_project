@@ -5,6 +5,7 @@
     justify-content: space-between;
     align-items: center;
     margin: auto;
+    color: var(--text-color);
 
     .wrapper {
         width: 384px;
@@ -21,6 +22,7 @@
             display: flex;
             flex-direction: column;
             margin-bottom: 24px;
+            grid-gap: 10px;
 
             .login-lable {
                 line-height: 2rem;
@@ -31,6 +33,11 @@
         .block-button {
             .btn-login {
                 width: 100%;
+                height: 48px;
+
+                button {
+                    height: 100%;
+                }
             }
         }
     }

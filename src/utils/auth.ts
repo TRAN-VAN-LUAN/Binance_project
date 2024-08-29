@@ -1,4 +1,5 @@
 import { IUser, defaultUser } from '../models/IUser';
+import { ICoin } from '../store/storeMarketPanel';
 
 export const getAccessFromLocalStorage = () => localStorage.getItem('access_token') || false;
 
@@ -21,4 +22,25 @@ export const getUserFromLocalStorage = (): IUser => {
     }
 
     return storage;
+};
+
+export const getCurrentCoinFromLocalStorage = (): ICoin => {
+    let storage;
+    try {
+        const LocalStorage = localStorage.getItem('crypto-detail');
+        if (LocalStorage) {
+            storage = JSON.parse(LocalStorage);
+        } else {
+            storage = {};
+        }
+    } catch (error) {
+        console.error('Error parsing user from localStorage:', error);
+        storage = defaultUser;
+    }
+
+    return storage;
+};
+
+export const clearLocalStorage = () => {
+    localStorage.removeItem('access_token');
 };

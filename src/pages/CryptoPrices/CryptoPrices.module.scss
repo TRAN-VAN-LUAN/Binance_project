@@ -1,0 +1,178 @@
+.main-container {
+    padding: 0 40px 40px 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+
+    .container {
+        margin: 0 38px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 128px;
+            width: 100%;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            width: 100%;
+
+            .content-chart {
+                display: flex;
+                flex-direction: column;
+
+                .chart-header {
+                    display: flex;
+                    align-items: center;
+                    font-size: 4rem;
+                    font-weight: 600;
+                    margin-bottom: 40px;
+
+                    .img-coin {
+                        margin-right: 20px;
+                        img {
+                            width: 48px;
+                            height: 48px;
+                        }
+                    }
+
+                    span {
+                        font-size: 2rem;
+                        font-weight: 400;
+                        display: flex;
+                        align-items: end;
+                        height: 100%;
+                        padding-bottom: 6px;
+                        margin-left: 6px;
+                        color: var(--color-textThird);
+                    }
+                }
+                .content-price {
+                    display: flex;
+                    align-items: center;
+                    font-size: 2.8rem;
+                    font-weight: 600;
+
+                    .price-sub {
+                        font-size: 2.4rem;
+                        color: var(--color-price);
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+        .content-buy {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+
+            .content-buy-header {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                font-size: 2.4rem;
+                font-weight: 600;
+                grid-gap: 30px;
+                gap: 30px;
+                margin-bottom: 10px;
+            }
+
+            .content-detail {
+                display: flex;
+                flex-direction: column;
+                margin-top: 14px;
+                width: 100%;
+                font-size: 1.4rem;
+                font-weight: 500;
+
+                .content-item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    height: 96px;
+                    padding: 16px;
+                    border-radius: 8px;
+                    background-color: var(--color-bg3);
+
+                    .content-detail-title {
+                        display: flex;
+                        width: 100%;
+                        cursor: pointer;
+                    }
+
+                    .content-detail-price {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        .bitcoin {
+                            display: flex;
+                            align-items: center;
+                            padding: 8px;
+                            border-radius: 50px;
+                            background-color: var(--bg-primary);
+
+                            img {
+                                width: 24px;
+                                height: 24px;
+                            }
+                            span {
+                                font-size: 1.6rem;
+                                margin-left: 10px;
+                            }
+                        }
+
+                        .content-input {
+                            font-size: 2rem;
+                            font-weight: 400;
+                        }
+                    }
+                }
+
+                .price-bitcoin {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    font-size: 2rem;
+                    font-weight: 500;
+                    margin: 24px 0;
+                    color: var(--color-textThird);
+                    width: 100%;
+
+                    .show-price {
+                        max-width: 148px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    .currency-coin {
+                        max-width: 200px;
+
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+
+                .btn-buyBTC {
+                    button {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -98,12 +98,12 @@ export const StoreDashBoardUser = [
 
 export const DashBoard: IDashBoard[] = [
     {
-        title: 'DashBoard',
+        title: 'dashboard',
         icon: <IconHome />,
         path: '/',
     },
     {
-        title: 'Assets',
+        title: 'assets',
         icon: <IconWallet />,
         children: [
             {
@@ -121,7 +121,7 @@ export const DashBoard: IDashBoard[] = [
         ],
     },
     {
-        title: 'Account',
+        title: 'account',
         icon: <IconAccount />,
         children: [
             {
@@ -129,13 +129,13 @@ export const DashBoard: IDashBoard[] = [
                 path: 'profile/enterprise',
             },
             {
-                title: 'Security',
+                title: 'security',
                 path: 'security',
             },
         ],
     },
     {
-        title: 'Setting',
+        title: 'setting',
         icon: <IconSetting />,
         path: 'settings/preference',
     },

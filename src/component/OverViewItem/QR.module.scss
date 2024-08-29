@@ -1,0 +1,43 @@
+.qr {
+    padding: 20px;
+    border: 1px solid var(--color-line);
+    border-radius: 24px;
+
+    .wrapper-qr {
+        position: relative;
+        padding: 10px;
+        background-color: var(--white);
+        border-radius: 8px;
+
+        .icon-qr {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 26px;
+            height: 26px;
+            border: 3px solid rgb(255, 255, 255);
+            transform: translate(-50%, -50%);
+            background-color: var(--black);
+            background-size: 85%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-image: url(../../assets/img/logo.png);
+        }
+    }
+}
+
+.info-qr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 24px;
+    font-size: 2rem;
+    font-weight: 600;
+
+    .info-qr-header {
+        color: var(--color-textThird);
+        font-weight: 400;
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+    }
+}

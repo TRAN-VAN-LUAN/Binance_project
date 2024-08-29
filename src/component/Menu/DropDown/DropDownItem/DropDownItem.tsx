@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import styles from '../Menu.module.scss';
+import styles from '../../Menu.module.scss';
 import classNames from 'classnames/bind';
-import { IDropDown } from '../../../models/ILayout';
-import { ArrowRight } from '../../../assets/Icon/icon';
+import { IDropDown } from '../../../../models/ILayout';
+import { ArrowRight } from '../../../../assets/Icon/icon';
 
 const cx = classNames.bind(styles);
 const DropDownItem: FC<IDropDown> = (props) => {

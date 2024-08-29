@@ -1,20 +1,20 @@
 import { Link } from 'react-router-dom';
-import { IconBars, Logo } from '../assets/Icon/icon';
-import { cx } from './Layout';
-import NavigateItem from '../component/Menu/NavigateItem';
+import { IconBars, Logo } from '../../assets/Icon/icon';
+import { cx } from '../Layout';
+import NavigateItem from '../../component/Menu/NavigateItem';
 import { useTranslation } from 'react-i18next';
-import { IconAction, NAV } from '../store/storeLayout';
-import NavigateIcon from '../component/Menu/NavigateIcon';
-import { Button } from '../component/Button/Button';
-import DropDown from '../component/Menu/DropDown/DropDown';
-import { getAccessFromLocalStorage } from '../utils/auth';
-import { AuthData } from './context/layoutContext';
+import { IconAction, NAV } from '../../store/storeLayout';
+import NavigateIcon from '../../component/Menu/NavigateIcon';
+import { Button } from '../../component/Button/Button';
+import DropDown from '../../component/Menu/DropDown/DropDown';
+import { getAccessFromLocalStorage } from '../../utils/auth';
+import { AuthData } from '../context/layoutContext';
 import { useState } from 'react';
 
 const AppHeader = () => {
     const { t } = useTranslation(['Header']);
     const isAuth = getAccessFromLocalStorage();
-    const { setShowNavDraw } = AuthData();
+    const { setShowNavDraw, theme } = AuthData();
     const [showDropDown, setShowDropDown] = useState<string>(IconAction[0].title);
 
     const handleShowDropDownEnter = (title: string) => {
@@ -26,9 +26,9 @@ const AppHeader = () => {
     };
 
     return (
-        <div className={cx('topbar-main-container')}>
+        <div className={cx('topbar-main-container', theme)}>
             <div className={cx('topbar-nav')}>
-                <Link to="/" className={cx('topbar-logo')}>
+                <Link to="overview" className={cx('topbar-logo')}>
                     <Logo width="12rem" height="2.4rem" />
                 </Link>
                 {isAuth && (

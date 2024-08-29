@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from '../Menu.module.scss';
-import DropDownItem from './DropDownItem';
+import DropDownItem from './DropDownItem/DropDownItem';
 import { IDropDown } from '../../../models/ILayout';
 import { FC } from 'react';
 

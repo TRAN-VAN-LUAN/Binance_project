@@ -1,21 +1,3 @@
-{
-    "dashdoard": "Bảng điều khiển",
-    "assets": "Tài sản",
-    "account": "Tài khoản",
-    "setting": "tùy chỉnh",
-    "userId": "ID Người dùng",
-    "viplevel": "Mức độ VIP",
-    "usertype": "Loại Tài Khoản",
-    "following": "Đang theo dõi",
-    "follower": "Người theo dõi",
-    "getstarted": "Bắt đầu",
-    "pending": "Đang duyệt",
-    "verify": "Xác minh",
-    "indentifycation": "Nhận dạng",
-    "cashin": "Tiền Mặt",
-    "withdraw": "Rút",
-    "deposit": "Tiền gửi",
-    "overview": "Tổng quan",
-    "spot": "Điểm",
-    "margin": "Lề"
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:414865fdee684b579ceda88b24474359109223e1765ad54cde2d0aeaea4a713d
+size 1088

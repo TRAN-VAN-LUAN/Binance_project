@@ -1,24 +1,25 @@
 // import lib
-import { useEffect, useState } from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
+// import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 // Import file
+import { RootState } from '../../store';
 import { Button } from '../../component/Button/Button';
 import Input from '../../component/Input/Input';
 import { IFormLogin } from '../../models/ILogin';
-import loginSchema from '../../schema/LoginSchema';
+// import loginSchema from '../../schema/LoginSchema';
 import { ShowFormErrorMessage } from '../../component/Input/ShowFormErrorMessage';
 import { cx } from './Login';
-import { IUser, defaultUser } from '../../models/IUser';
-import { getAllUserById } from '../../services/userApi';
+import { IUser } from '../../models/IUser';
 import { AuthData } from '../../layout/context/layoutContext';
+import { useSelector } from 'react-redux';
+import { useRef } from 'react';
 
 const LoginForm = () => {
     const { t } = useTranslation(['Login']);
-    const [users, setUsers] = useState<IUser[]>([defaultUser]);
+    let listUser = useSelector((state: RootState) => state.user.listUser);
     const { setAuthenticated } = AuthData();
     const navigate = useNavigate();
 
@@ -29,36 +30,37 @@ const LoginForm = () => {
 
     const {
         control,
-        watch,
+        // watch,
         handleSubmit,
+        setError,
         formState: { errors },
     } = useForm({
-        resolver: yupResolver(loginSchema),
+        // resolver: yupResolver(loginSchema),
         defaultValues,
     });
 
-    const valueEmail = watch('username');
-    const valuePassword = watch('password');
+    const refEmail = useRef<HTMLInputElement>(null);
+    const refPassword = useRef<HTMLInputElement>(null);
 
-    const loadAllUser = async () => {
-        const dataUser: IUser[] = await getAllUserById();
-        setUsers(dataUser);
-    };
-
-    useEffect(() => {
-        loadAllUser();
-    }, []);
+    // const valueEmail = watch('username');
+    // const valuePassword = watch('password');
 
     const onSubmit = () => {
-        const resultFindUser: IUser[] = users.filter(
-            (user) => user.email === valueEmail && user.password === valuePassword,
+        const resultFindUser: IUser[] = listUser.filter(
+            (user) => user.email === refEmail.current?.value && user.password === refPassword.current?.value,
         );
+        console.log(resultFindUser);
         if (setAuthenticated) {
             setAuthenticated();
             // save to localstorage
-            const infoUser = JSON.stringify(resultFindUser[0]);
-            localStorage.setItem('access_token', infoUser);
-            navigate('/');
+            if (resultFindUser.length > 0) {
+                const infoUser = JSON.stringify(resultFindUser[0]);
+                localStorage.setItem('access_token', infoUser);
+                navigate('/');
+            } else {
+                setError('username', { type: 'custom', message: 'Invalid user name' });
+                setError('password', { type: 'custom', message: 'Invalid password' });
+            }
         }
     };
 
@@ -74,11 +76,13 @@ const LoginForm = () => {
                                 {t('username')}
                             </label>
                             <Input
-                                {...field}
+                                // {...field}
                                 id={field.name}
                                 placeholder="Username"
                                 type="text"
                                 className={cx('username')}
+                                ref={refEmail}
+                                // onChange={() => handleChangeEmail()}
                             />
                             <ShowFormErrorMessage message={errors[field.name]?.message} />
                         </>
@@ -100,6 +104,7 @@ const LoginForm = () => {
                                 placeholder="Password"
                                 className={cx('password')}
                                 type="password"
+                                ref={refPassword}
                             />
                             <ShowFormErrorMessage message={errors[field.name]?.message} />
                         </>

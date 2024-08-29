@@ -4,6 +4,7 @@ import { FC, useState } from 'react';
 import { Button } from '../Button/Button';
 import { useTranslation } from 'react-i18next';
 import { IClock, IconPrice } from '../../assets/Icon/icon';
+import { countDown } from '../../pages/MarketOverview/MarketOverview';
 const cx = classNames.bind(styles);
 
 interface IDashBoardVoucher {
@@ -32,19 +33,10 @@ const DashBoardVoucher: FC<IDashBoardVoucher> = (props) => {
     const dbDisabled: boolean = props.active?.state === 'pending' ? true : false;
     const date = new Date(props.active.time).getTime();
 
-    const countDown = setInterval(() => {
-        let now = new Date().getTime();
-        let distance = date - now;
-        setDay(Math.floor(distance / (1000 * 60 * 60 * 24)));
-        setHour(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-        setMinute(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
-        if (distance < 0) {
-            clearInterval(countDown);
-        }
-    }, 1000);
+    countDown(date, setDay, setHour, setMinute);
 
     return (
-        <div className={cx('voucher', state ? 'active' : '')}  onClick={() => setStateActive(name)}>
+        <div className={cx('voucher', state ? 'active' : '')} onClick={() => setStateActive(name)}>
             {state ? (
                 <>
                     <div className={cx('voucher-id', 'voucher-id-active')}>

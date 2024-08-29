@@ -1,6 +1,7 @@
 @import '../../styles/styles/mixin.scss';
 .main-container {
     display: flex;
+    justify-content: center;
     width: 100%;
 
     .container {
@@ -19,6 +20,7 @@
     height: var(--height-dashboard-header);
     padding-top: 24px;
     margin-bottom: 16px;
+    color: var(--text-color);
 
     .info {
         position: relative;
@@ -126,6 +128,7 @@
         padding-bottom: 24px;
         font-weight: 500;
         line-height: 2.8rem;
+        color: var(--text-color);
     }
 
     .voucher {
@@ -135,23 +138,17 @@
     }
 }
 
-@media (min-width: 1200px) {
+@media (max-width: 1200px) {
     .container {
         max-width: calc(936px + var(--dynamic-dashboard-left));
     }
 }
-
-
 
 // Large devices (desktops, 992px and up)
 @media (max-width: 992px) {
     .main-container {
         .dashboard-header {
             display: flex;
-        }
-
-        .dashboard-container {
-            height: 100%;
         }
 
         .container {
@@ -166,8 +163,12 @@
 }
 
 // Medium devices (tablets, 768px and up)
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .main-container .info-details {
         display: none !important;
+    }
+
+    .main-container .voucher {
+        height: auto !important;
     }
 }

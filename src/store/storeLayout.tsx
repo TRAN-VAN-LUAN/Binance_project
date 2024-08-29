@@ -14,8 +14,10 @@ import {
     Spot2C,
     TradingBot2C,
 } from '../assets/Icon/icon';
-import DropDownUser from '../component/Menu/DropDown/DropDownUser';
-import DropDownWallet from '../component/Menu/DropDown/DropDownWallet';
+import DropDownDownLoad from '../component/Menu/DropDown/DropDownDownLoad/DropDownDownLoad';
+import DropDownLanguge from '../component/Menu/DropDown/DropDownLanguage/DropDownLanguge';
+import DropDownUser from '../component/Menu/DropDown/DropDownUser/DropDownUser';
+import DropDownWallet from '../component/Menu/DropDown/DropDownWallet/DropDownWallet';
 import { IDropDown } from '../models/ILayout';
 
 export const IconAction = [
@@ -45,12 +47,12 @@ export const IconAction = [
     {
         title: 'QR',
         icon: IconDownload,
-        dropdown: '',
+        dropdown: <DropDownDownLoad />,
     },
     {
         title: 'language',
         icon: IconLanguage,
-        dropdown: '',
+        dropdown: <DropDownLanguge />,
     },
 ];
 
@@ -133,4 +135,15 @@ export const NAV = [
     //     title: 'more',
     //     children: { contentFirst: IDropDownTradeBasic, contentRight: IDropDownTradeAdvanced },
     // },
+];
+
+export const IListLanguge = [
+    {
+        languge: 'English (New Zealand)',
+        key: 'en',
+    },
+    {
+        languge: 'Tiếng Việt',
+        key: 'vn',
+    },
 ];
