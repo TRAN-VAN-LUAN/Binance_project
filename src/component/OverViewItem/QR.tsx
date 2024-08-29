@@ -1,6 +1,10 @@
 import classNames from 'classnames/bind';
 import styles from './QR.module.scss';
+<<<<<<< HEAD
 import { ReactNode } from 'react';
+=======
+import React, { ReactNode } from 'react';
+>>>>>>> 9248bc2a209d0b2d78d786b866b75619179118ce
 import { useTranslation } from 'react-i18next';
 
 const cx = classNames.bind(styles);
@@ -34,4 +38,4 @@ const QR = (props: IQR) => {
     );
 };
 
-export default QR;
+export default React.memo(QR);

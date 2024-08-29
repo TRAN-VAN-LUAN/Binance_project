@@ -4,10 +4,10 @@ import styles from './MarketPanel.module.scss';
 import { ICoins } from '../../../../slice/coinSlice';
 import { RootState, useAppDispatch } from '../../../../store';
 import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { numberWithCommas } from './MarketPanel';
 import { IconGrowth } from '../../../../assets/Icon/icon';
-import { getCoinApi } from '../../../../services/coinApI';
+import { getCoinApi, getCoinPriceByName } from '../../../../services/coinApI';
 
 const cx = classNames.bind(styles);
 
@@ -24,26 +24,6 @@ const MarketPanelItem = (props: PropsMarketsPanel) => {
     const dispatch = useAppDispatch();
     const [dataCoinApi, setDataCoinApi] = useState<ICoins[]>(dataCoin);
 
-    const setShowItem = (data: ICoin) => {
-        dataCoin.map((coin) => {
-            if (coin.symbol === data.nameCoin?.name) {
-                data.price?.sub
-                    ? (data.price.sub = numberWithCommas(parseFloat(coin.askPrice ? coin.askPrice : '') * 23255))
-                    : '';
-                data.price?.price
-                    ? (data.price.price = numberWithCommas(parseFloat(coin.askPrice ? coin.askPrice : '')))
-                    : '';
-                data.growth ? (data.growth = coin.priceChangePercent) : '';
-            }
-        });
-
-        if (setShowCrypto) {
-            const crypto = JSON.stringify(data);
-            console.log(crypto);
-            localStorage.setItem('crypto-detail', crypto);
-            setShowCrypto(data);
-        }
-    };
 
     useEffect(() => {
         const callCoinApi = setInterval(() => {
@@ -55,6 +35,28 @@ const MarketPanelItem = (props: PropsMarketsPanel) => {
     useEffect(() => {
         setDataCoinApi(dataCoin);
     }, [dataCoin]);
+    const setShowItem = (data: ICoin) => {
+        dataCoin.map((coin) => {
+            if (coin.symbol === data.nameCoin?.name) {
+                data.price?.sub
+                    ? (data.price.sub = numberWithCommas(parseFloat(coin.askPrice ? coin.askPrice : '') * 23255))
+                    : '';
+                data.price?.price
+                    ? (data.price.price = numberWithCommas(parseFloat(coin.askPrice ? coin.askPrice : '')))
+                    : '';
+                data.growth ? (data.growth = coin.priceChangePercent) : '';
+
+                dispatch(getCoinPriceByName());
+            }
+        });
+
+        if (setShowCrypto) {
+            const crypto = JSON.stringify(data);
+            console.log(crypto);
+            localStorage.setItem('crypto-detail', crypto);
+            setShowCrypto(data);
+        }
+    };
 
     return (
         <>
@@ -186,4 +188,5 @@ const MarketPanelItem = (props: PropsMarketsPanel) => {
         </>
     );
 };
-export default MarketPanelItem;
+
+export default React.memo(MarketPanelItem);

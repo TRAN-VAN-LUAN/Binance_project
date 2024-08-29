@@ -42,6 +42,7 @@ const AppHeader = () => {
                                 <>
                                     <NavigateItem key={index} title={t(nav.title)}>
                                         <DropDown
+                                            key={index}
                                             headerLeft={'Basic'}
                                             headerRight={'Advanced'}
                                             contentFirst={nav.children?.contentFirst}
@@ -62,10 +63,9 @@ const AppHeader = () => {
                                 onMouseLeave={() => handleShowDropDownLeave()}
                                 onMouseEnter={() => handleShowDropDownEnter(action.title)}
                                 className={cx('topbar-action-item')}
+                                key={index}
                             >
-                                <NavigateIcon className={cx(action.title)} key={index}>
-                                    {<action.icon />}
-                                </NavigateIcon>
+                                <NavigateIcon className={cx(action.title)}>{<action.icon />}</NavigateIcon>
                                 {showDropDown === action.title && action.dropdown}
                             </div>
                         ) : (

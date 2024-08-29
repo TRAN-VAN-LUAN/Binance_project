@@ -1,11 +1,13 @@
 import classNames from 'classnames/bind';
 import styles from './MarketPanel.module.scss';
 import { IStoreMarket, storeMarket_Discover, storeMarket_Markets } from '../../../../store/storeMarketPanel';
-import { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { marketPanelShowEnum } from '../../../../enums/IDashBoard';
 import { IconOrderDefault } from '../../../../assets/Icon/icon';
-import MarketPanelItem from './MarketPanelItem';
+// import MarketPanelItem from './MarketPanelItem';
+
+const MarketPanelItem = React.lazy(() => import('./MarketPanelItem'));
 
 const cx = classNames.bind(styles);
 
@@ -92,7 +94,9 @@ const MarketPanel = () => {
                                 ),
                             )}
                         </>
-                        <MarketPanelItem data={dataMarket} showContent={showContent}></MarketPanelItem>
+                        <Suspense>
+                            <MarketPanelItem data={dataMarket} showContent={showContent}></MarketPanelItem>
+                        </Suspense>
                         <></>
                     </div>
                     {/* ) : (
